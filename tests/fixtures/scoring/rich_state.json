@@ -1,0 +1,98 @@
+{
+  "page_type": "service",
+  "primary_intent": "commercial",
+  "central_entity": "Acme Analytics Engine",
+  "target_action": "book a demo",
+  "location_target": null,
+  "sensitivity": "ordinary",
+  "document_text": "# Acme Analytics Engine\n\nAcme Analytics Engine is a streaming database auditing platform for enterprise data teams.\n\n## Core capabilities\n\nAcme Analytics Engine provides real-time database auditing with sub-millisecond latency. It processes over 100,000 events per second and reduces operational cost for data teams. Acme Analytics Engine serves enterprise data teams and integrates with Snowflake.\n\n## Pricing and delivery\n\nPricing starts from $2,000 per month, delivered in a four-step onboarding process with a 30-day money-back guarantee. Book a demo to see it running on your data. Get started in three steps.\n\n## Proof and trust\n\nAvailability is 99.99%, measured by Jane Doe from the Acme Corporation standards team and documented as SOC 2 Type II. Read the [streaming data guide](/guides/streaming-data) and the [pricing page](/pricing). Setup details live in the [onboarding documentation](/docs/onboarding).\n",
+  "entities": [
+    {
+      "entity_id": "e1",
+      "canonical_name": "Acme Analytics Engine",
+      "kind": "product_service",
+      "salience": 0.9,
+      "is_central": true,
+      "aliases": ["Acme Analytics"]
+    },
+    {
+      "entity_id": "e2",
+      "canonical_name": "enterprise data teams",
+      "kind": "audience",
+      "salience": 0.6
+    },
+    {
+      "entity_id": "e3",
+      "canonical_name": "Acme Corporation",
+      "kind": "organization",
+      "salience": 0.5
+    },
+    {
+      "entity_id": "e4",
+      "canonical_name": "Jane Doe",
+      "kind": "person",
+      "salience": 0.4,
+      "occurrences": [
+        {"passage_id": "p-0007", "start_offset": 10, "end_offset": 18, "sentence": "Availability is 99.99%, measured by Jane Doe."}
+      ]
+    },
+    {"entity_id": "e5", "canonical_name": "SOC 2 Type II", "kind": "standard", "salience": 0.4},
+    {"entity_id": "e6", "canonical_name": "operational cost", "kind": "outcome", "salience": 0.3},
+    {"entity_id": "e7", "canonical_name": "real-time dashboards", "kind": "product_service", "salience": 0.3}
+  ],
+  "eav_rows": [
+    {"eav_id": "eav1", "entity_name": "Acme Analytics Engine", "attribute": "throughput", "value": "100,000 events/sec", "status": "explicit", "is_required_by_page_type": true},
+    {"eav_id": "eav2", "entity_name": "Acme Analytics Engine", "attribute": "latency", "value": "sub-millisecond", "status": "explicit"},
+    {"eav_id": "eav3", "entity_name": "Acme Analytics Engine", "attribute": "availability", "value": "99.99%", "status": "explicit"},
+    {"eav_id": "eav4", "entity_name": "Acme Analytics Engine", "attribute": "price", "value": "from $2,000 per month", "status": "explicit", "is_required_by_page_type": true},
+    {"eav_id": "eav5", "entity_name": "Acme Analytics Engine", "attribute": "process", "value": "four-step onboarding", "status": "explicit", "is_required_by_page_type": true},
+    {"eav_id": "eav6", "entity_name": "Acme Analytics Engine", "attribute": "guarantee", "value": "30-day money-back", "status": "explicit", "is_required_by_page_type": true},
+    {"eav_id": "eav7", "entity_name": "Jane Doe", "attribute": "author", "value": "Jane Doe", "status": "explicit"}
+  ],
+  "triples": [
+    {"triple_id": "t1", "subject": "Acme Analytics Engine", "predicate": "provides", "object_": "streaming database auditing", "triple_type": "capability", "status": "explicit"},
+    {"triple_id": "t2", "subject": "Acme Analytics Engine", "predicate": "reduces", "object_": "operational cost", "triple_type": "outcome", "status": "explicit"},
+    {"triple_id": "t3", "subject": "Acme Analytics Engine", "predicate": "serves", "object_": "enterprise data teams", "triple_type": "audience", "status": "explicit"},
+    {"triple_id": "t4", "subject": "Acme Analytics Engine", "predicate": "category", "object_": "streaming database auditing", "triple_type": "category", "status": "explicit"},
+    {"triple_id": "t5", "subject": "Acme Analytics Engine", "predicate": "integrates with", "object_": "Snowflake", "triple_type": "integration", "status": "explicit"},
+    {"triple_id": "t6", "subject": "Acme Analytics Engine", "predicate": "located in", "object_": "Berlin", "triple_type": "geography", "status": "explicit"},
+    {"triple_id": "t7", "subject": "Acme Analytics Engine", "predicate": "priced at", "object_": "$2,000 per month", "triple_type": "price", "status": "explicit"},
+    {"triple_id": "t8", "subject": "Acme Analytics Engine", "predicate": "ensures", "object_": "compliance readiness", "triple_type": "other", "status": "implied"}
+  ],
+  "fanout_queries": [
+    {"query_id": "q1", "query_text": "What is Acme Analytics Engine?", "importance": 3, "intent": "informational"},
+    {"query_id": "q2", "query_text": "How much does Acme Analytics Engine cost?", "importance": 3, "intent": "commercial"},
+    {"query_id": "q3", "query_text": "Does Acme Analytics Engine integrate with Snowflake?", "importance": 2, "intent": "informational"},
+    {"query_id": "q4", "query_text": "Is Acme Analytics Engine SOC 2 compliant?", "importance": 2, "intent": "evaluation"},
+    {"query_id": "q5", "query_text": "Acme Analytics Engine alternatives", "importance": 1, "intent": "comparison", "scope": "out_of_scope"}
+  ],
+  "coverage_rows": [
+    {"query_id": "q1", "query_text": "What is Acme Analytics Engine?", "status": "covered"},
+    {"query_id": "q2", "query_text": "How much does Acme Analytics Engine cost?", "status": "partial"},
+    {"query_id": "q3", "query_text": "Does Acme Analytics Engine integrate with Snowflake?", "status": "covered"},
+    {"query_id": "q4", "query_text": "Is Acme Analytics Engine SOC 2 compliant?", "status": "missing"},
+    {"query_id": "q5", "query_text": "Acme Analytics Engine alternatives", "status": "missing"}
+  ],
+  "claims": [
+    {
+      "claim_id": "c1",
+      "statement": "Acme Analytics Engine processes over 100,000 events per second.",
+      "risk_tier": "ordinary",
+      "verification_state": "verified",
+      "evidence_source_ids": ["s1"],
+      "requires_substantiation": true
+    },
+    {
+      "claim_id": "c2",
+      "statement": "Acme Analytics Engine reduced database costs for Northwind by 41%.",
+      "risk_tier": "ordinary",
+      "verification_state": "verified",
+      "evidence_source_ids": ["s2"],
+      "requires_substantiation": true
+    }
+  ],
+  "evidence_sources": [
+    {"source_id": "s1", "label": "official", "title": "Acme benchmark report", "url": "https://acme.example/benchmarks", "publisher": "Acme Corporation", "publication_date": "2026-01-15"},
+    {"source_id": "s2", "label": "measured_study", "title": "Northwind case study", "url": "https://acme.example/case-studies/northwind", "publisher": "Acme Corporation", "publication_date": "2025-11-02"}
+  ]
+}

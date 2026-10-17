@@ -1,0 +1,38 @@
+# EntityGraph Auditor — API + worker image (local-first; no paid services)
+FROM python:3.14-slim AS base
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Non-root user with explicit UID/GID 10001 (PRD §19)
+RUN groupadd -g 10001 ega && useradd -u 10001 -g 10001 --create-home --shell /usr/sbin/nologin ega \
+    && mkdir -p /app /app/var && chown -R ega:ega /app
+
+WORKDIR /app
+
+COPY requirements.lock pyproject.toml README.md ./
+COPY packages ./packages
+COPY apps/api ./apps/api
+COPY auditor ./auditor
+COPY migrations ./migrations
+COPY alembic.ini ./
+
+RUN pip install --no-cache-dir -r requirements.lock \
+    && pip install --no-cache-dir --no-deps .
+
+USER ega
+
+ENV EGA_DATABASE_URL=sqlite:////app/var/ega.db \
+    EGA_DATA_DIR=/app/var \
+    EGA_HOST=0.0.0.0 \
+    EGA_PORT=8000
+
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+    CMD python -c "import urllib.request,sys,os; port=os.environ.get('EGA_PORT','8000'); sys.exit(0 if urllib.request.urlopen(f'http://127.0.0.1:{port}/api/v1/health', timeout=4).status==200 else 1)"
+
+# Single-process default (audit jobs run in-process; see DECISIONS.md)
+# exec ensures SIGTERM properly propagates to uvicorn on container stop
+CMD ["sh", "-c", "alembic upgrade head || true; exec uvicorn ega_api.main:app --host ${EGA_HOST:-0.0.0.0} --port ${EGA_PORT:-8000}"]
+

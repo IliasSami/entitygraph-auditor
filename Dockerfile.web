@@ -1,0 +1,33 @@
+# EntityGraph Auditor — web workspace image
+FROM node:22-alpine AS build
+
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+
+COPY apps/web/package.json apps/web/package-lock.json ./apps/web/
+WORKDIR /app/apps/web
+RUN npm ci
+
+COPY apps/web/ ./
+ARG NEXT_PUBLIC_API_BASE=http://localhost:8000
+ENV NEXT_PUBLIC_API_BASE=${NEXT_PUBLIC_API_BASE}
+RUN npm run build
+
+# ---- runtime ----
+FROM node:22-alpine AS runtime
+WORKDIR /app/apps/web
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
+
+RUN addgroup -g 10001 -S ega && adduser -u 10001 -S ega -G ega
+COPY --from=build --chown=ega:ega /app/apps/web ./
+# PrismGEO sample dataset for the AI Visibility screen (/compare →
+# /api/visibility). Resolved by walking up from the app cwd, so it lives beside
+# (not inside) apps/web.
+COPY --chown=ega:ega prism-geo/data/prismgeo.db /app/prism-geo/data/prismgeo.db
+USER ega
+
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+    CMD wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1
+
+CMD ["npm", "run", "start"]

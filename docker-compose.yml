@@ -1,0 +1,109 @@
+# EntityGraph Auditor — local-first Docker Compose (PRD §19)
+#
+#   1. cp .env.example .env          (generate APP_ENCRYPTION_KEY to store secrets)
+#   2. docker compose up --build
+#   3. open http://localhost:3000 (workspace) / http://localhost:8000/api/v1/docs
+#
+# Defaults: SQLite + in-process audit jobs + no model provider (deterministic-only).
+# Optional profiles:
+#   --profile postgres   → PostgreSQL instead of SQLite (set EGA_DATABASE_URL)
+#   --profile ollama     → local LLM inference (zero API cost) on port 11434
+# Ports bind to 127.0.0.1 by default — never expose without an auth gate.
+
+name: entitygraph-auditor
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: entitygraph-auditor-api:0.1.0
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      EGA_DATABASE_URL: ${EGA_DATABASE_URL:-sqlite:////app/var/ega.db}
+      EGA_DATA_DIR: /app/var
+      EGA_HOST: 0.0.0.0
+      EGA_PORT: 8000
+      EGA_CORS_ORIGINS: ${EGA_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      EGA_ALLOW_PRIVATE_URLS: ${EGA_ALLOW_PRIVATE_URLS:-false}
+      APP_ENCRYPTION_KEY: ${APP_ENCRYPTION_KEY:-}
+      # Point at the compose ollama service when the profile is enabled:
+      EGA_DEFAULT_PROVIDER: ${EGA_DEFAULT_PROVIDER:-null}
+      EGA_OLLAMA_BASE_URL: ${EGA_OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - api-data:/app/var
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=4).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      args:
+        NEXT_PUBLIC_API_BASE: ${NEXT_PUBLIC_API_BASE:-http://localhost:8000}
+    image: entitygraph-auditor-web:0.1.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE: ${NEXT_PUBLIC_API_BASE:-http://localhost:8000}
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  # ---- optional: local LLM (zero API cost) -------------------------------
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+
+  # ---- optional: PostgreSQL (multi-user / durable deployments) ------------
+  postgres:
+    profiles: ["postgres"]
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ega
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ega_local_dev_only}
+      POSTGRES_DB: ega
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ega -d ega"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  api-data:
+  pg-data:
+  ollama-models:

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#005f29", "surface-variant": "#e9e1dd", "on-surface-variant": "#464554", "on-surface": "#1e1b19", "outline-variant": "#c7c4d7", "tertiary": "#00451c", "surface-container-high": "#eee7e3", "info-soft": "#EFF6FF", "secondary-fixed-dim": "#b7c4ff", "dark-text": "#FAFAFA", "on-background": "#1e1b19", "surface-dim": "#e0d8d5", "warning-soft": "#FFFBEB", "success-soft": "#F0FDF4", "on-primary-fixed-variant": "#372abf", "warning": "#B45309", "on-secondary-fixed-variant": "#0039b5", "primary": "#2a14b4", "danger-soft": "#FEF2F2", "on-secondary-container": "#fffbff", "on-primary": "#ffffff", "primary-soft": "#EEF2FF", "inverse-primary": "#c3c0ff", "border-hairline": "#E7E5E4", "secondary": "#1d4ed8", "on-tertiary": "#ffffff", "inverse-on-surface": "#f7efeb", "error": "#ba1a1a", "on-error-container": "#93000a", "on-primary-fixed": "#100069", "text-muted": "#78716C", "dark-surface": "#16161A", "on-tertiary-container": "#78da8b", "surface-bright": "#fff8f5", "primary-container": "#4338ca", "surface-container-lowest": "#ffffff", "dark-primary": "#818CF8", "dark-border": "#27272A", "primary-hover": "#3730A3", "background-canvas": "#FAFAF9", "on-tertiary-fixed": "#00210a", "surface-container": "#f4ece8", "dark-text-muted": "#A1A1AA", "surface": "#FFFFFF", "error-container": "#ffdad6", "danger": "#B91C1C", "primary-fixed": "#e3dfff", "background": "#fff8f5", "surface-tint": "#5148d7", "surface-container-highest": "#e9e1dd", "dark-background": "#0C0C0E", "surface-subtle": "#F5F5F4", "on-tertiary-fixed-variant": "#005323", "secondary-fixed": "#dce1ff", "tertiary-fixed": "#95f8a7", "primary-fixed-dim": "#c3c0ff", "on-secondary-fixed": "#001551", "inverse-surface": "#33302d", "tertiary-fixed-dim": "#79db8d", "outline": "#777586", "secondary-container": "#4069f2", "on-error": "#ffffff", "on-primary-container": "#c1beff", "surface-container-low": "#faf2ee", "on-secondary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xl": "2rem" }, "fontFamily": { "subsection-h3": [ "Inter" ], "code-data": [ "JetBrains Mono" ], "display-h1": [ "Inter" ], "display-h1-mobile": [ "Inter" ], "section-h2": [ "Inter" ], "body-large": [ "Inter" ], "body-medium": [ "Inter" ], "body-small": [ "Inter" ], "editor-prose": [ "\"Source Serif 4\"" ], "label-medium": [ "Inter" ] }, "fontSize": { "subsection-h3": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "code-data": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "display-h1": [ "32px", { "lineHeight": "40px", "fontWeight": "700" } ], "display-h1-mobile": [ "26px", { "lineHeight": "32px", "fontWeight": "700" } ], "section-h2": [ "24px", { "lineHeight": "32px", "fontWeight": "600" } ], "body-large": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-medium": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "body-small": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "editor-prose": [ "18px", { "lineHeight": "30px", "fontWeight": "400" } ], "label-medium": [ "13px", { "lineHeight": "16px", "fontWeight": "500" } ] } } } };</script></head><body class="bg-background-canvas text-on-surface font-body-medium text-body-medium antialiased"><aside class="fixed left-0 top-0 h-full w-[240px] bg-surface border-r border-border-hairline z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="px-space-md pt-space-md pb-space-sm"><div class="flex items-center gap-space-sm mb-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-bold text-label-medium"><span class="material-symbols-outlined text-[16px]">token</span></div><span class="font-subsection-h3 text-subsection-h3 font-bold tracking-tight text-on-surface">Aentio</span></div><button class="w-full flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-subtle border border-border-hairline text-left hover:bg-surface-container-high transition-colors" type="button"><div class="flex items-center gap-space-xs truncate"><span class="material-symbols-outlined text-text-muted text-[16px]">domain</span><span class="font-label-medium text-label-medium text-on-surface truncate">Fernhill Bookkeeping</span></div><span class="material-symbols-outlined text-text-muted text-[16px]">unfold_more</span></button></div><nav class="flex flex-col px-space-sm mt-space-xs gap-0.5" data-active-classes="bg-primary-soft text-primary-container font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="home" href="#"><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="optimize" href="#"><span>Optimize</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="briefs" href="#"><span>Briefs</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="library" href="#"><span>Library</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-soft text-primary-container font-semibold" data-path="entity-hub" href="#"><span>Entity Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="ai-visibility" href="#"><span>AI Visibility</span></a></nav></div><div class="flex flex-col p-space-sm border-t border-border-hairline"><nav class="flex flex-col mb-space-sm" data-active-classes="bg-primary-soft text-primary-container font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-medium text-label-medium hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="settings" href="#"><span>Settings</span></a></nav><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-subtle text-on-surface-variant text-body-small font-body-small"><span class="w-2 h-2 rounded-full bg-tertiary-container ring-2 ring-tertiary-fixed"></span><span class="font-code-data text-code-data text-text-muted">Self-hosted · healthy</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface/90 backdrop-blur-md border-b border-border-hairline z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-text-muted text-[16px]">search</span><input class="w-64 h-8 pl-8 pr-12 rounded-lg bg-surface-subtle border border-border-hairline text-body-small font-body-small text-on-surface placeholder:text-text-muted focus:outline-none focus:border-primary-container transition-colors" placeholder="Quick search..." type="text"/><div class="absolute right-2 flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface border border-border-hairline text-[10px] font-code-data text-text-muted pointer-events-none"><span class="text-[11px]">⌘</span>K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-soft text-tertiary border border-border-hairline font-label-medium text-body-small"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span>Agent active</span></div><div class="h-4 w-px bg-border-hairline"></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 min-h-screen bg-background-canvas"><div class="flex flex-col w-full">
+<!-- Top Command Toolbar -->
+<div class="px-space-lg py-space-md bg-surface border-b border-border-hairline">
+<div class="flex flex-col gap-space-sm xl:flex-row xl:items-center xl:justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<h1 class="font-section-h2 text-section-h2 text-on-surface font-semibold tracking-tight">Entity Hub</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-code-data bg-primary-soft text-primary-container font-medium">v2.4.1 schema</span>
+</div>
+<p class="font-body-small text-body-small text-text-muted mt-0.5">Business knowledge graph · Canonical source of truth for all claims and schema</p>
+</div>
+<!-- Controls & Actions -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- View Switcher -->
+<div class="inline-flex items-center p-0.5 rounded-lg bg-surface-subtle border border-border-hairline">
+<button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-surface text-on-surface shadow-sm font-label-medium text-label-medium font-medium transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+<span>List</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] text-text-muted hover:text-on-surface font-label-medium text-label-medium font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+<span>Graph</span>
+</button>
+</div>
+<!-- Search -->
+<div class="relative flex items-center min-w-[260px]">
+<span class="material-symbols-outlined absolute left-2.5 text-text-muted text-[16px]">search</span>
+<input class="w-full h-8 pl-8 pr-12 rounded-lg bg-surface-subtle border border-border-hairline text-body-small font-body-small text-on-surface placeholder:text-text-muted focus:outline-none focus:border-primary-container focus:bg-surface transition-colors" placeholder="Search entities, facts, or aliases... ⌘K" type="text"/>
+<div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface border border-border-hairline text-[10px] font-code-data text-text-muted pointer-events-none">⌘K</div>
+</div>
+<!-- Import Dropdown Trigger -->
+<div class="relative">
+<button class="h-8 px-3 rounded-lg bg-surface hover:bg-surface-subtle border border-border-hairline text-on-surface font-label-medium text-label-medium inline-flex items-center gap-1.5 transition-colors" id="import-btn" type="button">
+<span class="material-symbols-outlined text-[16px] text-text-muted">file_download</span>
+<span>Import</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">expand_more</span>
+</button>
+</div>
+<!-- Add Entity Button -->
+<button class="h-8 px-3 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-label-medium inline-flex items-center gap-1.5 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add entity</span>
+</button>
+</div>
+</div>
+<!-- Filter Pills Row -->
+<div class="flex items-center gap-1.5 mt-space-sm overflow-x-auto pb-1 text-label-medium">
+<button class="px-2.5 py-1 rounded-full bg-on-surface text-surface font-medium text-body-small transition-colors" type="button">All (24)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-subtle hover:bg-surface border border-border-hairline text-text-muted hover:text-on-surface font-medium text-body-small transition-colors" type="button">Organization (3)</button>
+<button class="px-2.5 py-1 rounded-full bg-primary-soft text-primary-container border border-primary-container/20 font-medium text-body-small transition-colors" type="button">Service (6)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-subtle hover:bg-surface border border-border-hairline text-text-muted hover:text-on-surface font-medium text-body-small transition-colors" type="button">Person (2)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-subtle hover:bg-surface border border-border-hairline text-text-muted hover:text-on-surface font-medium text-body-small transition-colors" type="button">Place (4)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-subtle hover:bg-surface border border-border-hairline text-text-muted hover:text-on-surface font-medium text-body-small transition-colors" type="button">Concept (7)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-subtle hover:bg-surface border border-border-hairline text-text-muted hover:text-on-surface font-medium text-body-small transition-colors" type="button">Source (2)</button>
+<div class="ml-auto flex items-center gap-2 text-text-muted text-body-small">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Filters</span>
+</div>
+</div>
+</div>
+<!-- Main Content Layout (Table + Slide Docked Drawer) -->
+<div class="flex flex-col lg:flex-row flex-1 overflow-hidden min-h-[calc(100vh-140px)]">
+<!-- Left / Center Main Entity Table Workspace -->
+<div class="flex-1 flex flex-col min-w-0 bg-background-canvas">
+<!-- Table Controls Bar -->
+<div class="px-space-md py-2 flex items-center justify-between border-b border-border-hairline bg-surface/50 text-body-small text-text-muted">
+<div class="flex items-center gap-2">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container focus:ring-0" type="checkbox"/>
+<span>Selected 1 item</span>
+<span class="text-border-hairline">|</span>
+<button class="hover:text-on-surface text-primary-container font-medium" type="button">Bulk re-verify</button>
+<button class="hover:text-on-surface ml-2" type="button">Export JSON-LD</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-data text-xs">Sorted by Canonical ID</span>
+<button class="hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">swap_vert</span></button>
+</div>
+</div>
+<!-- Compact Entity Table -->
+<div class="overflow-x-auto flex-1 bg-surface">
+<table class="w-full border-collapse text-left text-body-small">
+<thead>
+<tr class="h-9 border-b border-border-hairline bg-surface-subtle/80 text-text-muted font-label-medium text-xs uppercase tracking-wider">
+<th class="w-10 px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</th>
+<th class="px-3 py-2 font-medium">Name &amp; Canonical ID</th>
+<th class="px-3 py-2 font-medium">Type</th>
+<th class="px-3 py-2 font-medium">Used on</th>
+<th class="px-3 py-2 font-medium">Verified Facts</th>
+<th class="px-3 py-2 font-medium">Last Verified</th>
+<th class="px-3 py-2 font-medium">Health / Status</th>
+<th class="w-12 px-3 py-2 text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-hairline font-body-small text-on-surface">
+<!-- Row 1: Fernhill Bookkeeping -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">domain</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Fernhill Bookkeeping</span>
+<span class="font-code-data text-[11px] text-text-muted">#fernhill-bookkeeping · 2 aliases</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Organization</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">14 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">8 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">2d ago</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Agency bookkeeping (SELECTED / ACTIVE ROW) -->
+<tr class="h-10 bg-primary-soft/40 border-l-4 border-l-primary-container transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input checked="" class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[16px]">hub</span>
+<div class="flex flex-col">
+<span class="font-semibold text-primary-container">Agency bookkeeping</span>
+<span class="font-code-data text-[11px] text-text-muted">#agency-bookkeeping · 3 aliases</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-info-soft text-secondary border border-secondary/20">Service</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="font-code-data font-medium">12 pages</span>
+<span class="material-symbols-outlined text-[13px] text-primary-container">link</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface font-medium">5 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">Sep 2026</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-danger-soft text-danger">
+<span class="w-1.5 h-1.5 rounded-full bg-danger"></span>
+                  Conflict (1)
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-on-surface p-1 rounded" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Fractional CFO -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">finance_chip</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Fractional CFO</span>
+<span class="font-code-data text-[11px] text-text-muted">#fractional-cfo · 1 alias</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-info-soft text-secondary border border-secondary/20">Service</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">9 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">6 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">1w ago</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Job costing -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">calculate</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Job costing</span>
+<span class="font-code-data text-[11px] text-text-muted">#job-costing · 4 aliases</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Concept</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">7 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">4 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">2w ago</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-warning-soft text-warning">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                  Needs review
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Austin, TX -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Austin, TX</span>
+<span class="font-code-data text-[11px] text-text-muted">#austin-tx · 1 alias</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Place</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">11 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">3 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">Jul 2026</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Dana Reyes -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">person</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Dana Reyes</span>
+<span class="font-code-data text-[11px] text-text-muted">Founder &amp; Managing Partner</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Person</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">5 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">3 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">Aug 2026</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Xero -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">extension</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Xero</span>
+<span class="font-code-data text-[11px] text-text-muted">#platform-xero</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Organization</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">8 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">2 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">Aug 2026</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 8: QuickBooks Online -->
+<tr class="h-10 hover:bg-surface-subtle transition-colors cursor-pointer group">
+<td class="px-3 py-2 text-center">
+<input class="rounded border-border-hairline w-3.5 h-3.5 text-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[16px]">extension</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">QuickBooks Online</span>
+<span class="font-code-data text-[11px] text-text-muted">#platform-qbo · QBO</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-subtle text-on-surface-variant border border-border-hairline">Organization</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-code-data">6 pages</span>
+<span class="material-symbols-outlined text-[13px] text-text-muted">open_in_new</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="font-code-data text-on-surface">2 facts</span>
+</td>
+<td class="px-3 py-2 text-text-muted font-code-data text-[12px]">Aug 2026</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-success-soft text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Healthy
+                </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-text-muted hover:text-on-surface p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Status Ribbon -->
+<div class="px-space-md py-2.5 bg-surface border-t border-border-hairline flex flex-wrap items-center justify-between text-body-small text-text-muted">
+<div class="flex items-center gap-2">
+<span>Showing 8 of 24 entities</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="text-danger font-medium">1 conflict across site</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span>All facts grounded in local sqlite graph</span>
+</div>
+<div class="flex items-center gap-2 font-code-data text-xs">
+<span class="text-tertiary">● synchronized</span>
+<span>schema_version: 2026.09-rc2</span>
+</div>
+</div>
+</div>
+<!-- Right Detail Drawer (440px fixed width docked panel) -->
+<div class="w-full lg:w-[440px] flex-shrink-0 bg-surface border-l border-border-hairline flex flex-col h-full shadow-sm">
+<!-- Drawer Header -->
+<div class="p-space-md border-b border-border-hairline bg-surface">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-info-soft text-secondary border border-secondary/20 uppercase tracking-wider font-code-data">Service</span>
+<span class="text-text-muted text-xs">/</span>
+<span class="font-code-data text-xs text-text-muted truncate">Entities / Agency bookkeeping</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center text-text-muted hover:text-on-surface hover:bg-surface-subtle transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<h2 class="font-subsection-h3 text-subsection-h3 font-semibold text-on-surface tracking-tight">Agency bookkeeping</h2>
+<!-- Aliases Chips -->
+<div class="flex flex-wrap items-center gap-1.5 mt-2">
+<span class="text-text-muted text-xs font-label-medium">Aliases:</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline font-code-data text-[11px] text-on-surface-variant">creative agency accounting</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline font-code-data text-[11px] text-on-surface-variant">studio bookkeeping</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline font-code-data text-[11px] text-on-surface-variant">agency back-office</span>
+</div>
+<!-- Canonical Definition Card -->
+<div class="mt-3 p-2.5 rounded-lg bg-surface-subtle/70 border border-border-hairline relative">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-label-medium uppercase text-text-muted tracking-wide">Canonical Entity Definition</span>
+<span class="text-[10px] font-code-data text-text-muted bg-surface px-1.5 py-0.2 rounded border border-border-hairline">156 / 160</span>
+</div>
+<p class="font-editor-prose text-[14px] leading-relaxed text-on-surface">
+            "Turnkey monthly bookkeeping, cash-flow forecasting, and job-costing advisory built specifically for design, advertising, and digital production studios."
+          </p>
+</div>
+<!-- Web Identifiers & schema specs -->
+<div class="mt-3 space-y-1.5">
+<div class="flex items-center justify-between text-xs bg-surface-subtle px-2 py-1.5 rounded border border-border-hairline">
+<div class="flex items-center gap-1.5 truncate">
+<span class="font-code-data text-text-muted text-[11px]">@id:</span>
+<span class="font-code-data text-primary-container text-[11px] truncate">https://fernhillcfo.com/#agency-bookkeeping</span>
+</div>
+<button class="text-text-muted hover:text-on-surface ml-2 flex-shrink-0" title="Copy URI" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1 text-text-muted">
+<span>Schema Type:</span>
+<span class="font-code-data text-on-surface bg-surface-subtle px-1.5 py-0.5 rounded text-[11px]">schema.org/FinancialService</span>
+</div>
+<div class="flex items-center gap-1 text-primary-container text-[11px] font-medium">
+<span class="hover:underline cursor-pointer">Wikidata</span>
+<span>·</span>
+<span class="hover:underline cursor-pointer">LinkedIn</span>
+<span>·</span>
+<span class="hover:underline cursor-pointer">Google</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Scrollable Body -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md">
+<!-- 1. Usage & Health Alert Card (Conflict Warning) -->
+<div class="rounded-xl border border-danger/30 bg-danger-soft p-space-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-danger text-on-primary text-[11px] font-medium tracking-wide">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>1 active conflict across 7 pages</span>
+</div>
+<span class="font-code-data text-[11px] text-danger font-medium">Severity: High</span>
+</div>
+<p class="text-body-small text-on-surface font-normal leading-relaxed">
+            Draft on <span class="font-code-data text-[12px] bg-surface px-1 py-0.5 rounded border border-danger/20 font-medium">/pricing</span> lists starter tier at <strong class="text-danger font-semibold">$299/mo</strong>; canonical verified fact is <strong class="text-tertiary-container font-semibold">$349/mo</strong>. 3 priority pages missing core entity anchor.
+          </p>
+<div class="pt-1 flex items-center justify-end">
+<button class="h-7 px-2.5 rounded bg-surface hover:bg-surface-subtle text-danger border border-danger/30 font-label-medium text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-sm" type="button">
+<span>Resolve conflict</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 2. Verified Facts Ledger -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<h3 class="font-label-medium text-label-medium font-semibold text-on-surface">Verified Facts</h3>
+<span class="px-1.5 py-0.2 rounded-full text-xs font-code-data bg-surface-subtle text-text-muted border border-border-hairline">5</span>
+</div>
+<button class="text-primary-container hover:text-primary-hover font-label-medium text-xs font-medium inline-flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Add fact</span>
+</button>
+</div>
+<div class="rounded-lg border border-border-hairline overflow-hidden bg-surface">
+<table class="w-full text-left text-xs">
+<thead class="bg-surface-subtle text-text-muted font-label-medium border-b border-border-hairline text-[11px]">
+<tr>
+<th class="p-2 font-medium">Fact Property</th>
+<th class="p-2 font-medium">Ground Truth</th>
+<th class="p-2 font-medium text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-hairline font-body-small">
+<!-- Fact 1 -->
+<tr class="hover:bg-surface-subtle/50">
+<td class="p-2 align-top">
+<span class="font-medium text-on-surface block">Starter plan pricing</span>
+<span class="text-[11px] text-text-muted">Source: Pricing page (v2.4)</span>
+</td>
+<td class="p-2 align-top">
+<span class="font-code-data font-semibold text-on-surface text-[12px]">$349/month</span>
+<span class="block text-[11px] text-text-muted">Sep 18, 2026</span>
+</td>
+<td class="p-2 text-right align-top">
+<span class="inline-flex items-center text-tertiary font-medium gap-0.5 text-[11px] bg-success-soft px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+<!-- Fact 2 -->
+<tr class="hover:bg-surface-subtle/50">
+<td class="p-2 align-top">
+<span class="font-medium text-on-surface block">Minimum studio size</span>
+<span class="text-[11px] text-text-muted">Source: Service agreement</span>
+</td>
+<td class="p-2 align-top">
+<span class="font-code-data text-on-surface text-[12px]">4–45 team members</span>
+<span class="block text-[11px] text-text-muted">Sep 2026</span>
+</td>
+<td class="p-2 text-right align-top">
+<span class="inline-flex items-center text-tertiary font-medium gap-0.5 text-[11px] bg-success-soft px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+<!-- Fact 3 -->
+<tr class="hover:bg-surface-subtle/50">
+<td class="p-2 align-top">
+<span class="font-medium text-on-surface block">Accounting platform</span>
+<span class="text-[11px] text-text-muted">Source: Partner directory</span>
+</td>
+<td class="p-2 align-top">
+<span class="font-code-data text-on-surface text-[12px]">Xero Platinum &amp; QBO</span>
+<span class="block text-[11px] text-text-muted">Aug 2026</span>
+</td>
+<td class="p-2 text-right align-top">
+<span class="inline-flex items-center text-tertiary font-medium gap-0.5 text-[11px] bg-success-soft px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+<!-- Fact 4 -->
+<tr class="hover:bg-surface-subtle/50">
+<td class="p-2 align-top">
+<span class="font-medium text-on-surface block">Sync frequency</span>
+<span class="text-[11px] text-text-muted">Source: Client onboarding</span>
+</td>
+<td class="p-2 align-top">
+<span class="font-code-data text-on-surface text-[12px]">Weekly milestone cadence</span>
+<span class="block text-[11px] text-text-muted">Sep 2026</span>
+</td>
+<td class="p-2 text-right align-top">
+<span class="inline-flex items-center text-tertiary font-medium gap-0.5 text-[11px] bg-success-soft px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3. Entity Relationships Graph & Visual Diagram -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-label-medium text-label-medium font-semibold text-on-surface">Relationships in Knowledge Graph (4)</h3>
+<span class="text-xs font-code-data text-primary-container cursor-pointer hover:underline">Explore full graph →</span>
+</div>
+<!-- Mini Node Diagram Graph -->
+<div class="p-3 rounded-xl border border-border-hairline bg-surface-subtle relative overflow-hidden">
+<div class="w-full h-36 flex items-center justify-center relative">
+<!-- SVG Connector Edges -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none text-outline-variant stroke-current" stroke-dasharray="3,3" stroke-width="1.5">
+<!-- Center to Top-Left: offeredBy -->
+<line x1="50%" x2="20%" y1="50%" y2="24%"></line>
+<!-- Center to Top-Right: serves -->
+<line x1="50%" x2="80%" y1="50%" y2="24%"></line>
+<!-- Center to Bottom-Left: locatedIn -->
+<line x1="50%" x2="22%" y1="50%" y2="76%"></line>
+<!-- Center to Bottom-Right: usesSoftware -->
+<line x1="50%" x2="78%" y1="50%" y2="76%"></line>
+</svg>
+<!-- Center Hub Node -->
+<div class="z-10 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary shadow-sm flex items-center gap-1.5 border border-primary-hover">
+<span class="material-symbols-outlined text-[14px]">hub</span>
+<span class="font-label-medium text-xs font-semibold">Agency bookkeeping</span>
+</div>
+<!-- Node Top-Left (offeredBy) -->
+<div class="absolute top-1 left-2 z-10 px-2 py-1 rounded bg-surface border border-border-hairline shadow-sm text-left">
+<span class="block text-[9px] font-code-data text-text-muted">offeredBy</span>
+<span class="text-xs font-medium text-on-surface">Fernhill</span>
+</div>
+<!-- Node Top-Right (serves) -->
+<div class="absolute top-1 right-2 z-10 px-2 py-1 rounded bg-surface border border-border-hairline shadow-sm text-right">
+<span class="block text-[9px] font-code-data text-text-muted">serves</span>
+<span class="text-xs font-medium text-on-surface">Creative studios</span>
+</div>
+<!-- Node Bottom-Left (locatedIn) -->
+<div class="absolute bottom-1 left-2 z-10 px-2 py-1 rounded bg-surface border border-border-hairline shadow-sm text-left">
+<span class="block text-[9px] font-code-data text-text-muted">locatedIn</span>
+<span class="text-xs font-medium text-on-surface">Austin, TX</span>
+</div>
+<!-- Node Bottom-Right (usesSoftware) -->
+<div class="absolute bottom-1 right-2 z-10 px-2 py-1 rounded bg-surface border border-border-hairline shadow-sm text-right">
+<span class="block text-[9px] font-code-data text-text-muted">usesSoftware</span>
+<span class="text-xs font-medium text-on-surface">Xero / QBO</span>
+</div>
+</div>
+<!-- List of exact triples -->
+<div class="mt-2 pt-2 border-t border-border-hairline space-y-1 text-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-code-data text-[11px] text-text-muted">offeredBy</span>
+<span class="font-medium text-on-surface hover:text-primary-container cursor-pointer">Fernhill Bookkeeping (Organization)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-code-data text-[11px] text-text-muted">serves</span>
+<span class="font-medium text-on-surface">Creative agencies (Audience)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-code-data text-[11px] text-text-muted">locatedIn</span>
+<span class="font-medium text-on-surface hover:text-primary-container cursor-pointer">Austin, TX (Place)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-code-data text-[11px] text-text-muted">usesSoftware</span>
+<span class="font-medium text-on-surface hover:text-primary-container cursor-pointer">Xero (Platform)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Bottom Action Footer -->
+<div class="p-space-md border-t border-border-hairline bg-surface flex flex-col gap-2">
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 h-9 px-3 rounded-lg bg-surface hover:bg-surface-subtle border border-border-hairline text-on-surface font-label-medium text-label-medium font-medium inline-flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-text-muted">sync</span>
+<span>Verify facts</span>
+</button>
+<button class="flex-1 h-9 px-3 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-label-medium font-medium inline-flex items-center justify-center gap-1.5 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>Generate schema</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-1.5 text-center text-text-muted text-[11px] font-code-data">
+<span class="material-symbols-outlined text-[13px] text-tertiary">check_circle</span>
+<span>Last synced to JSON-LD graph 2 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple client-side micro-interaction for Import popover
+  document.addEventListener('DOMContentLoaded', () => {
+    const importBtn = document.getElementById('import-btn');
+    if (importBtn) {
+      importBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        alert('Import Sources: \n• Crawl site sitemap\n• Schema.org JSON-LD ingest\n• CSV / Excel claims file\n• Wikidata Q-item entity reconcile');
+      });
+    }
+  });
+</script></main></div></body></html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed":"#001551","on-tertiary":"#ffffff","border-hairline":"#E7E5E4","inverse-surface":"#33302d","surface-container-highest":"#e9e1dd","on-secondary-container":"#fffbff","secondary-fixed":"#dce1ff","on-surface-variant":"#464554","surface-dim":"#e0d8d5","inverse-primary":"#c3c0ff","surface-variant":"#e9e1dd","background":"#fff8f5","on-surface":"#1e1b19","outline":"#777586","secondary-fixed-dim":"#b7c4ff","dark-background":"#0C0C0E","primary-soft":"#EEF2FF","primary-hover":"#3730A3","danger-soft":"#FEF2F2","surface-subtle":"#F5F5F4","tertiary-container":"#005f29","dark-text-muted":"#A1A1AA","info-soft":"#EFF6FF","tertiary-fixed":"#95f8a7","on-tertiary-fixed":"#00210a","error":"#ba1a1a","success-soft":"#F0FDF4","surface-tint":"#5148d7","dark-surface":"#16161A","surface-container-lowest":"#ffffff","on-error":"#ffffff","on-tertiary-fixed-variant":"#005323","warning-soft":"#FFFBEB","dark-text":"#FAFAFA","background-canvas":"#FAFAF9","on-primary-fixed-variant":"#372abf","surface-bright":"#fff8f5","dark-border":"#27272A","tertiary":"#00451c","on-secondary-fixed-variant":"#0039b5","secondary-container":"#4069f2","surface-container":"#f4ece8","on-secondary":"#ffffff","on-error-container":"#93000a","on-primary-fixed":"#100069","text-muted":"#78716C","surface-container-low":"#faf2ee","primary-fixed-dim":"#c3c0ff","primary-fixed":"#e3dfff","outline-variant":"#c7c4d7","primary":"#2a14b4","danger":"#B91C1C","tertiary-fixed-dim":"#79db8d","primary-container":"#4338ca","inverse-on-surface":"#f7efeb","secondary":"#1d4ed8","error-container":"#ffdad6","dark-primary":"#818CF8","on-tertiary-container":"#78da8b","on-background":"#1e1b19","surface-container-high":"#eee7e3","on-primary-container":"#c1beff","surface":"#FFFFFF","on-primary":"#ffffff","warning":"#B45309"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem","space-xs":"0.25rem",gutter:"1rem","space-sm":"0.5rem","space-md":"1rem","space-xl":"2rem",margin:"1.5rem"},fontFamily:{"display-h1-mobile":["Inter"],"label-medium":["Inter"],"body-small":["Inter"],"code-data":["JetBrains Mono"],"section-h2":["Inter"],"display-h1":["Inter"],"body-large":["Inter"],"editor-prose":["\"Source Serif 4\""],"body-medium":["Inter"],"subsection-h3":["Inter"]},fontSize:{"display-h1-mobile":["26px",{lineHeight:"32px",fontWeight:"700"}],"label-medium":["13px",{lineHeight:"16px",fontWeight:"500"}],"body-small":["13px",{lineHeight:"18px",fontWeight:"400"}],"code-data":["13px",{lineHeight:"18px",fontWeight:"400"}],"section-h2":["24px",{lineHeight:"32px",fontWeight:"600"}],"display-h1":["32px",{lineHeight:"40px",fontWeight:"700"}],"body-large":["16px",{lineHeight:"24px",fontWeight:"400"}],"editor-prose":["18px",{lineHeight:"30px",fontWeight:"400"}],"body-medium":["14px",{lineHeight:"20px",fontWeight:"400"}],"subsection-h3":["20px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-background-canvas text-on-surface font-body-medium text-body-medium antialiased"><header class="fixed top-0 left-0 right-0 z-50 h-[52px] bg-background-canvas border-b border-border-hairline"><div class="h-[52px] w-full px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[16px] text-on-primary">hub</span></div><span class="font-section-h2 text-body-medium font-semibold tracking-tight text-on-surface">Aentio</span></div><div class="h-4 w-[1px] bg-border-hairline mx-space-xs"></div><button class="flex items-center gap-space-xs px-space-xs py-1 rounded hover:bg-surface-subtle text-on-surface transition-colors" type="button"><span class="font-label-medium text-label-medium text-on-surface">Fernhill Bookkeeping</span><span class="material-symbols-outlined text-[16px] text-text-muted">expand_more</span></button><div class="h-4 w-[1px] bg-border-hairline mx-space-xs"></div><div class="flex items-center gap-space-xs text-text-muted font-body-small text-body-small"><span class="hover:text-on-surface transition-colors cursor-pointer">Library</span><span class="text-[12px]">/</span><span class="text-on-surface font-medium truncate max-w-[140px]">Agency bookkeeping</span></div><div class="ml-space-xs inline-flex items-center px-2 py-0.5 rounded-full border border-border-hairline bg-surface text-text-muted font-code-data text-code-data">Draft</div></div><div class="hidden lg:flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface border border-border-hairline"><span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span><span class="font-code-data text-code-data text-on-surface-variant">Local model · Ollama (qwen2.5:14b)</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center -space-x-1.5"><div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-[10px] font-medium text-on-secondary-fixed ring-2 ring-background-canvas">AK</div><div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-medium text-on-primary-fixed ring-2 ring-background-canvas">MR</div></div><button class="h-8 px-space-sm inline-flex items-center gap-space-xs rounded bg-surface border border-border-hairline hover:bg-surface-subtle text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-primary-container">auto_awesome</span><span class="font-label-medium text-label-medium text-on-surface">Run agent</span><kbd class="font-code-data text-[11px] px-1 py-0.5 rounded bg-surface-subtle text-text-muted border border-border-hairline">⌘↵</kbd></button><button class="h-8 px-space-md inline-flex items-center rounded bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-label-medium transition-colors shadow-[0_1px_2px_rgba(28,25,23,0.04)]" type="button">Publish</button><div class="h-4 w-[1px] bg-border-hairline mx-space-xs"></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-[52px] bottom-0 w-14 bg-background-canvas border-r border-border-hairline z-40 flex flex-col justify-between py-space-sm"><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-primary-soft text-primary-container font-semibold"><a aria-current="page" class="w-10 h-10 rounded flex items-center justify-center transition-colors bg-primary-soft text-primary-container font-semibold" data-path="content-optimizer" href="#" title="Optimizer Workspace"><span class="material-symbols-outlined text-[20px]">edit_note</span></a><a class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="content-library" href="#" title="Document Library"><span class="material-symbols-outlined text-[20px]">folder</span></a><a class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="knowledge-graph" href="#" title="Entity Knowledge Graph"><span class="material-symbols-outlined text-[20px]">schema</span></a><a class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="audit-history" href="#" title="Audit &amp; Diff Logs"><span class="material-symbols-outlined text-[20px]">history</span></a></nav><div class="flex flex-col items-center gap-space-xs w-full px-space-xs"><a class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" data-path="system-settings" href="#" title="Settings"><span class="material-symbols-outlined text-[20px]">tune</span></a></div></aside><div class="pl-14"><main class="w-full pt-[52px] min-h-screen bg-background-canvas"><div class="flex flex-col w-full h-[calc(100vh-52px)] overflow-hidden bg-background-canvas text-on-surface">
+<!-- Top Workspace Sub-Bar: Clean, quiet hairline ribbon for document actions -->
+<div class="h-10 w-full bg-surface border-b border-border-hairline px-4 flex items-center justify-between shrink-0 z-20">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 text-xs text-text-muted font-label-medium">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block animate-pulse"></span>
+        Self-hosted Agent Engine
+      </span>
+<span class="text-border-hairline">|</span>
+<span class="text-xs font-code-data text-text-muted">Rev 18 · Qwen-2.5 14b active</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-7 px-2.5 rounded hover:bg-surface-subtle text-xs font-label-medium text-text-muted hover:text-on-surface flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px]">difference</span>
+<span>Show Diff</span>
+</button>
+<button class="h-7 px-2.5 rounded bg-primary-soft hover:bg-primary-fixed text-xs font-label-medium text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px]">bolt</span>
+<span>Re-scan Entities</span>
+</button>
+<span class="text-border-hairline">|</span>
+<button class="h-7 w-7 rounded flex items-center justify-center hover:bg-surface-subtle text-text-muted hover:text-on-surface transition-colors" title="Toggle Fullscreen Canvas">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Primary Three-Zone Application Body -->
+<div class="flex-1 flex flex-row w-full overflow-hidden min-h-0">
+<!-- ZONE 1: LEFT CONTEXT PANEL (280px) -->
+<aside class="w-[280px] shrink-0 border-r border-border-hairline bg-surface flex flex-col h-full overflow-hidden select-none" id="left-context-panel">
+<!-- Section Header -->
+<div class="h-10 px-4 flex items-center justify-between border-b border-border-hairline shrink-0">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-muted">tune</span>
+<span class="font-label-medium text-label-medium tracking-tight text-on-surface">Context &amp; Target</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center hover:bg-surface-subtle text-text-muted hover:text-on-surface transition-colors" title="Collapse Context" type="button">
+<span class="material-symbols-outlined text-[16px]">first_page</span>
+</button>
+</div>
+<!-- Scrollable Context Content -->
+<div class="flex-1 overflow-y-auto px-4 py-3 space-y-4 text-xs font-body-small">
+<!-- Target Query Card -->
+<div class="p-2.5 rounded-lg bg-surface-subtle border border-border-hairline space-y-1.5">
+<div class="flex items-center justify-between text-text-muted">
+<span class="text-[10px] uppercase tracking-wider font-code-data font-semibold">Target Query</span>
+<button class="hover:text-on-surface transition-colors p-0.5 rounded" title="Copy Query">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+<div class="font-label-medium text-on-surface font-semibold text-[13px] leading-tight select-text">
+            bookkeeping for creative agencies
+          </div>
+</div>
+<!-- Meta Tags Matrix -->
+<div class="space-y-1.5">
+<span class="text-[10px] uppercase tracking-wider font-code-data text-text-muted font-semibold">Intent &amp; Audience</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-primary-soft text-primary font-label-medium text-[11px]">Commercial</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline text-on-surface-variant font-label-medium text-[11px]">Service page</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline text-on-surface-variant font-label-medium text-[11px]">Agency owners</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-subtle border border-border-hairline text-on-surface-variant font-label-medium text-[11px]">Austin, TX</span>
+</div>
+<div class="text-[11px] text-text-muted pt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">record_voice_over</span>
+<span>Tone: <strong class="text-on-surface font-medium">Authoritative, practical</strong></span>
+</div>
+</div>
+<div class="h-[1px] bg-border-hairline"></div>
+<!-- Business Entities in Use -->
+<div class="space-y-2">
+<div class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary-container">hub</span>
+<span class="font-label-medium text-[12px] text-on-surface font-medium">Entities in Use</span>
+<span class="text-[10px] font-code-data px-1.5 py-0.2 rounded-full bg-surface-subtle text-text-muted">4</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-on-surface">expand_more</span>
+</div>
+<div class="space-y-1 pl-1">
+<div class="flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-subtle transition-colors group">
+<span class="text-on-surface font-medium flex items-center gap-1.5 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Fernhill Bookkeeping
+              </span>
+<span class="font-code-data text-[10px] text-text-muted shrink-0">Org</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-subtle transition-colors group">
+<span class="text-on-surface font-medium flex items-center gap-1.5 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Agency bookkeeping
+              </span>
+<span class="font-code-data text-[10px] text-text-muted shrink-0">Service</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-subtle transition-colors group">
+<span class="text-on-surface font-medium flex items-center gap-1.5 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Fractional CFO
+              </span>
+<span class="font-code-data text-[10px] text-text-muted shrink-0">Service</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 rounded hover:bg-surface-subtle transition-colors group">
+<span class="text-on-surface font-medium flex items-center gap-1.5 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                Austin, TX
+              </span>
+<span class="font-code-data text-[10px] text-text-muted shrink-0">Place</span>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-border-hairline"></div>
+<!-- Approved Facts (Entity Hub) -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-[12px] text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-[#15803D]">verified</span>
+              Approved Facts (4)
+            </span>
+<span class="text-[10px] font-code-data text-primary hover:underline cursor-pointer">Hub</span>
+</div>
+<div class="space-y-1.5">
+<div class="p-2 rounded bg-surface-subtle border border-border-hairline">
+<div class="flex items-center justify-between text-on-surface font-medium leading-snug">
+<span>Plans from $349/mo</span>
+<span class="material-symbols-outlined text-[14px] text-[#15803D]">check_circle</span>
+</div>
+<div class="text-[10px] font-code-data text-text-muted mt-0.5">Verified Sep 2026</div>
+</div>
+<div class="p-2 rounded bg-surface-subtle border border-border-hairline">
+<div class="flex items-center justify-between text-on-surface font-medium leading-snug">
+<span>Xero Platinum Partner</span>
+<span class="material-symbols-outlined text-[14px] text-[#15803D]">check_circle</span>
+</div>
+<div class="text-[10px] font-code-data text-text-muted mt-0.5">Verified Aug 2026</div>
+</div>
+<div class="p-2 rounded bg-surface-subtle border border-border-hairline">
+<div class="flex items-center justify-between text-on-surface font-medium leading-snug">
+<span>Austin office since 2018</span>
+<span class="material-symbols-outlined text-[14px] text-[#15803D]">check_circle</span>
+</div>
+<div class="text-[10px] font-code-data text-text-muted mt-0.5">Verified Jul 2026</div>
+</div>
+<div class="p-2 rounded bg-surface-subtle border border-border-hairline">
+<div class="flex items-center justify-between text-on-surface font-medium leading-snug">
+<span>Fixed monthly retainer</span>
+<span class="material-symbols-outlined text-[14px] text-[#15803D]">check_circle</span>
+</div>
+<div class="text-[10px] font-code-data text-text-muted mt-0.5">Verified Sep 2026</div>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-border-hairline"></div>
+<!-- Competitors & Grounding -->
+<div class="space-y-2 pb-2">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-[12px] text-on-surface font-medium">Grounding &amp; SERP</span>
+<a class="text-[11px] text-primary hover:underline" href="#">Manage SERP</a>
+</div>
+<div class="text-[11px] text-text-muted flex items-center justify-between">
+<span>Competitor baselines:</span>
+<span class="font-code-data text-on-surface">7 inc · 3 exc</span>
+</div>
+<div class="p-2 rounded bg-surface border border-border-hairline text-[11px] text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-text-muted">history_edu</span>
+<span class="truncate">ChatGPT &amp; Perplexity snapshots (Oct 14)</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ZONE 2: CENTER EDITOR ZONE (max 720px width inside fluid pane) -->
+<main class="flex-1 flex flex-col h-full bg-background-canvas overflow-hidden min-w-0">
+<!-- Editor Floating Layer Toolbar (Sticky Top) -->
+<div class="h-11 w-full bg-surface border-b border-border-hairline px-6 flex items-center justify-between shrink-0 z-10 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<!-- Layer Toggles -->
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-code-data text-text-muted uppercase tracking-wider mr-1">Overlays:</span>
+<button class="h-7 px-2.5 rounded-full bg-primary-soft text-primary text-xs font-label-medium flex items-center gap-1.5 hover:bg-primary-fixed transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Entities</span>
+</button>
+<button class="h-7 px-2.5 rounded-full bg-primary-soft text-primary text-xs font-label-medium flex items-center gap-1.5 hover:bg-primary-fixed transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Claims</span>
+</button>
+<button class="h-7 px-2.5 rounded-full bg-primary-soft text-primary text-xs font-label-medium flex items-center gap-1.5 hover:bg-primary-fixed transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Answers</span>
+</button>
+<button class="h-7 px-2.5 rounded-full bg-danger-soft text-danger text-xs font-label-medium flex items-center gap-1.5 hover:bg-error-container transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-danger"></span>
+<span>Issues (3)</span>
+</button>
+</div>
+<!-- Typography & View Toggles -->
+<div class="flex items-center gap-1 text-xs">
+<div class="flex items-center bg-surface-subtle p-0.5 rounded border border-border-hairline">
+<button class="px-2 py-0.5 rounded bg-surface shadow-xs font-label-medium text-on-surface">Serif</button>
+<button class="px-2 py-0.5 rounded text-text-muted hover:text-on-surface font-label-medium">Sans</button>
+</div>
+<button class="h-7 px-2 rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface flex items-center gap-1 font-label-medium" title="Outline Index (⌘O)">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Outline</span>
+</button>
+</div>
+</div>
+<!-- Prose Document Scrollport -->
+<div class="flex-1 overflow-y-auto px-6 py-8 flex justify-center">
+<!-- 720px Enforced Typographic Column with Margin Gutters -->
+<div class="w-full max-w-[720px] bg-surface rounded-lg shadow-sm border border-border-hairline min-h-[920px] p-12 relative flex flex-col justify-between">
+<div class="space-y-6">
+<!-- Article Header -->
+<div class="space-y-3 pb-4 border-b border-border-hairline">
+<h1 class="font-display-h1 text-display-h1 text-on-surface tracking-tight leading-tight">
+                Bookkeeping for Creative Agencies: What It Costs and What You Get
+              </h1>
+<p class="font-editor-prose text-[19px] italic text-text-muted leading-relaxed">
+                Why standard bookkeeping fails creative studios, and how fractional financial control protects project margins.
+              </p>
+</div>
+<!-- Paragraph 1: Strong Direct Answer (Green Indicator Bar + Gutter glyph) -->
+<div class="relative group -ml-4 pl-4 border-l-2 border-[#15803D] bg-success-soft/30 py-1.5 rounded-r">
+<div class="absolute -left-7 top-2 text-[#15803D] font-code-data text-xs" title="Direct Answer: Optimal quotation quality">
+                ✓
+              </div>
+<p class="font-editor-prose text-editor-prose text-on-surface">
+<strong>Fernhill Bookkeeping</strong> provides tailored monthly bookkeeping, job-cost margin tracking, and fractional CFO guidance specifically built for creative agencies in Austin, TX. By tracking retainer burn and utilization in real time, agencies protect profitability across fixed-fee deliverables.
+              </p>
+</div>
+<!-- Paragraph 2: Ambiguous Entity with Amber dashed underline + Floating Action Bar -->
+<div class="relative group -ml-4 pl-4 border-l-2 border-transparent hover:border-amber-400 transition-colors">
+<div class="absolute -left-7 top-1 text-warning font-code-data text-xs" title="Missing or Ambiguous Entity Reference">
+                ◆
+              </div>
+<!-- Floating Quick-Action Micro Toolbar -->
+<div class="absolute -top-10 left-6 z-30 bg-[#1C1917] text-white px-2 py-1 rounded-lg shadow-xl flex items-center gap-1.5 text-[11px] font-label-medium animate-fadeIn">
+<button class="px-2 py-0.5 rounded hover:bg-neutral-800 flex items-center gap-1 text-white">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed">bolt</span>
+                  Make answer-first
+                </button>
+<span class="text-neutral-600">|</span>
+<button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-white">Name entity</button>
+<button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-white">Add source</button>
+<button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-white">Add FAQ</button>
+<span class="text-neutral-600">|</span>
+<button class="px-1.5 py-0.5 rounded hover:bg-neutral-800 text-neutral-300">Simplify ▾</button>
+</div>
+<p class="font-editor-prose text-editor-prose text-on-surface">
+<span class="border-b-2 border-dashed border-amber-500 bg-amber-50/60 cursor-pointer" title="Ambiguous generalization: Clarify agency archetype">Most agencies</span> struggle with cash flow because <span class="border-b-2 border-dashed border-amber-500 bg-amber-50/60 cursor-pointer" title="Entity claim without named practitioner">traditional accountants</span> only reconcile bank accounts once a month. When project managers allocate hours without knowing real overhead burden, billable efficiency drops.
+              </p>
+</div>
+<!-- H2 Section Heading (Readiness: Green) -->
+<div class="relative pt-4">
+<div class="absolute -left-7 top-6 w-2 h-2 rounded-full bg-[#15803D]" title="Passage Readiness: 94%"></div>
+<h2 class="font-section-h2 text-section-h2 text-on-surface tracking-tight">
+                What Creative Agency Bookkeeping Costs
+              </h2>
+</div>
+<!-- Paragraph 3: Price Conflict / Verification Issue -->
+<div class="relative -ml-4 pl-4 border-l-2 border-danger/60 bg-danger-soft/20 py-1.5 rounded-r">
+<div class="absolute -left-7 top-2 text-danger font-code-data text-xs flex items-center" title="Price conflict with Entity Hub">
+                §
+              </div>
+<p class="font-editor-prose text-editor-prose text-on-surface">
+                Entry-level plans typically start from 
+                <span class="underline decoration-danger decoration-dotted underline-offset-4 font-semibold text-danger bg-danger-soft px-1.5 py-0.5 rounded cursor-pointer" title="Price conflict: Verified Fact says $349/mo">
+                  $299/mo
+                </span> 
+                for pre-revenue shops. However, custom reporting and weekly cash flow forecasting scale up to $1,800/mo for studios with over fifteen full-time creatives.
+              </p>
+</div>
+<!-- Paragraph 4: Vague Filler Content (Red wavy underline) -->
+<div class="relative -ml-4 pl-4 border-l-2 border-transparent">
+<div class="absolute -left-7 top-1 text-danger font-code-data text-xs" title="Vague filler text: Penalizes Answer Extraction">
+                !
+              </div>
+<p class="font-editor-prose text-editor-prose text-on-surface">
+<span class="underline decoration-danger/80 decoration-wavy underline-offset-4 bg-danger-soft/30 cursor-pointer" title="Unsubstantiated marketing claim">
+                  We pride ourselves on offering truly unmatched synergy and industry-leading financial care that goes beyond standard expectations.
+                </span>
+</p>
+</div>
+<!-- H2 Section Heading 2 (Readiness: Amber) -->
+<div class="relative pt-4">
+<div class="absolute -left-7 top-6 w-2 h-2 rounded-full bg-warning" title="Passage Readiness: 58% (Missing structured claim)"></div>
+<h2 class="font-section-h2 text-section-h2 text-on-surface tracking-tight">
+                How Job Costing Protects Agency Margins
+              </h2>
+</div>
+<!-- Paragraph 5 -->
+<div class="relative">
+<p class="font-editor-prose text-editor-prose text-on-surface">
+                We reconcile labor rates directly into project management software so design directors know immediately when a scope creep occurs. Knowing actual effective hourly rates lets partners re-estimate retainers before the contract renews.
+              </p>
+</div>
+</div>
+<!-- Subtle in-editor citation indicator -->
+<div class="pt-8 mt-12 border-t border-border-hairline flex items-center justify-between text-xs text-text-muted font-body-small">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-[#15803D]">verified_user</span>
+              Structured schema graph: <strong>Service + FAQPage synced</strong>
+</span>
+<span class="font-code-data text-[11px]">JSON-LD injected</span>
+</div>
+</div>
+</div>
+<!-- Editor Bottom Status Bar (Sticky Bottom) -->
+<footer class="h-10 border-t border-border-hairline bg-surface/95 backdrop-blur px-6 flex items-center justify-between text-xs text-text-muted font-code-data shrink-0 z-10 select-none">
+<div class="flex items-center gap-3">
+<span>1,284 words</span>
+<span>·</span>
+<span>6 min read</span>
+<span>·</span>
+<span>Grade 8 (Flesch-Kincaid)</span>
+</div>
+<div class="flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-subtle border border-border-hairline text-[10px]">⌘O</kbd>
+<span class="text-on-surface-variant font-label-medium">Outline</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+<span class="text-on-surface-variant">Saved locally · Ollama ready</span>
+</div>
+</footer>
+</main>
+<!-- ZONE 3: RIGHT INTELLIGENCE PANEL (380px) -->
+<aside class="w-[380px] shrink-0 border-l border-border-hairline bg-background-canvas flex flex-row h-full overflow-hidden select-none">
+<!-- Slim Vertical Icon Rail (44px) -->
+<nav class="w-11 shrink-0 border-r border-border-hairline bg-surface-subtle py-3 flex flex-col items-center justify-between">
+<div class="flex flex-col items-center gap-2 w-full">
+<!-- Active Tab: Overview -->
+<button class="w-8 h-8 rounded-lg bg-surface text-primary-container shadow-xs flex items-center justify-center transition-colors" title="Overview &amp; Diagnostics">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface hover:bg-surface/60 flex items-center justify-center transition-colors" title="Entities Map">
+<span class="material-symbols-outlined text-[18px]">category</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface hover:bg-surface/60 flex items-center justify-center transition-colors" title="Direct Answer Engine">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface hover:bg-surface/60 flex items-center justify-center transition-colors" title="Evidence &amp; Facts">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface hover:bg-surface/60 flex items-center justify-center transition-colors" title="Passage Readiness">
+<span class="material-symbols-outlined text-[18px]">format_align_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface hover:bg-surface/60 flex items-center justify-center transition-colors" title="Hierarchy Structure">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+</button>
+</div>
+<button class="w-8 h-8 rounded-lg text-text-muted hover:text-on-surface flex items-center justify-center" title="Inspector Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</nav>
+<!-- Tab Content Area (336px) -->
+<div class="flex-1 h-full overflow-y-auto p-4 space-y-4">
+<!-- Answer Readiness Score Card -->
+<div class="p-3.5 rounded-xl bg-surface border border-border-hairline shadow-xs space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-xs font-semibold uppercase tracking-wider text-text-muted">Answer Readiness</span>
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-soft text-warning text-xs font-label-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                Almost ready
+              </span>
+<span class="px-1.5 py-0.5 rounded-full bg-danger-soft text-danger text-[11px] font-label-medium font-semibold">
+                3 blockers
+              </span>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex items-baseline gap-2">
+<span class="font-code-data text-3xl font-bold tracking-tight text-on-surface">72</span>
+<span class="text-xs text-text-muted font-code-data">/ 100</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-text-muted">
+<span>Directional rating</span>
+<span class="material-symbols-outlined text-[14px]" title="Directional index derived from entity grounding, answer conciseness, and citation readiness. Not a search engine rank prediction.">info</span>
+</div>
+</div>
+<!-- Dimension Bands (5 horizontal mini bars) -->
+<div class="space-y-2 pt-2 border-t border-border-hairline text-xs font-label-medium">
+<!-- Entities -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px]">
+<span class="text-on-surface-variant">Entities</span>
+<span class="text-warning font-medium">Fair · 64%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<!-- Answers -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px]">
+<span class="text-on-surface-variant">Answers</span>
+<span class="text-danger font-medium">Weak · 38%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden">
+<div class="h-full bg-danger rounded-full" style="width: 38%"></div>
+</div>
+</div>
+<!-- Evidence -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px]">
+<span class="text-on-surface-variant">Evidence</span>
+<span class="text-danger font-medium">Weak · 42%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden">
+<div class="h-full bg-danger rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<!-- Passages -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px]">
+<span class="text-on-surface-variant">Passages</span>
+<span class="text-warning font-medium">Fair · 58%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 58%"></div>
+</div>
+</div>
+<!-- Originality -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px]">
+<span class="text-on-surface-variant">Originality</span>
+<span class="text-[#15803D] font-medium">Strong · 88%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden">
+<div class="h-full bg-[#15803D] rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Recommendations Header -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-medium text-xs font-semibold text-on-surface uppercase tracking-wider">Top Recommendations</span>
+<span class="w-4 h-4 rounded-full bg-primary-soft text-primary font-code-data text-[10px] flex items-center justify-center font-bold">3</span>
+</div>
+<button class="text-text-muted hover:text-on-surface p-1 rounded" title="Filter Recommendations">
+<span class="material-symbols-outlined text-[15px]">filter_list</span>
+</button>
+</div>
+<!-- Recommendations Cards Stack -->
+<div class="space-y-3">
+<!-- Recommendation 1: Answer-First Intro -->
+<div class="p-3.5 rounded-xl bg-surface border border-border-hairline shadow-xs space-y-2.5 transition-all hover:border-primary-fixed">
+<div class="flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-danger-soft text-danger font-label-medium font-semibold">High impact</span>
+<span class="text-danger font-code-data font-bold tracking-widest text-[10px]" title="High Confidence">●●●</span>
+</div>
+<span class="font-code-data text-text-muted text-[10px]">Answers</span>
+</div>
+<h4 class="font-label-medium text-xs font-semibold text-on-surface leading-tight">
+              Answer the question in the first two sentences
+            </h4>
+<p class="font-body-small text-[12px] text-text-muted leading-relaxed">
+              Your intro starts with company history; AI answers usually quote the opening passage.
+            </p>
+<div class="flex items-center gap-1.5 pt-1">
+<button class="h-6 px-2.5 rounded bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-[11px] transition-colors">
+                Apply
+              </button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle border border-border-hairline text-on-surface font-label-medium text-[11px] transition-colors">
+                Edit
+              </button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface font-label-medium text-[11px] transition-colors">
+                Explain
+              </button>
+<button class="h-6 w-6 ml-auto rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss Recommendation">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 2: Price Conflict -->
+<div class="p-3.5 rounded-xl bg-surface border border-danger/30 shadow-xs space-y-2.5 transition-all hover:border-danger">
+<div class="flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-danger-soft text-danger font-label-medium font-semibold">High impact</span>
+<span class="text-danger font-code-data font-bold tracking-widest text-[10px]" title="High Confidence">●●●</span>
+</div>
+<span class="font-code-data text-text-muted text-[10px]">Evidence</span>
+</div>
+<h4 class="font-label-medium text-xs font-semibold text-on-surface leading-tight">
+              Price conflicts with your Entity Hub
+            </h4>
+<p class="font-body-small text-[12px] text-text-muted leading-relaxed">
+              Draft says from <span class="text-danger font-medium">$299/mo</span>; verified fact is from <span class="text-[#15803D] font-medium">$349/mo</span>.
+            </p>
+<div class="flex items-center gap-1.5 pt-1">
+<button class="h-6 px-2.5 rounded bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-[11px] transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_fix_high</span>
+<span>Fix to $349/mo</span>
+</button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle border border-border-hairline text-on-surface font-label-medium text-[11px] transition-colors">
+                Edit
+              </button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface font-label-medium text-[11px] transition-colors">
+                Explain
+              </button>
+<button class="h-6 w-6 ml-auto rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss Recommendation">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 3: Name Entity Attribution -->
+<div class="p-3.5 rounded-xl bg-surface border border-border-hairline shadow-xs space-y-2.5 transition-all hover:border-amber-400">
+<div class="flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-warning-soft text-warning font-label-medium font-semibold">Medium impact</span>
+<span class="text-warning font-code-data font-bold tracking-widest text-[10px]" title="Medium Confidence">●●○</span>
+</div>
+<span class="font-code-data text-text-muted text-[10px]">Entities</span>
+</div>
+<h4 class="font-label-medium text-xs font-semibold text-on-surface leading-tight">
+              Name Fernhill in the 'How it works' section
+            </h4>
+<p class="font-body-small text-[12px] text-text-muted leading-relaxed">
+              This section says "we" 9 times; a quoted passage would lose attribution without proper noun anchoring.
+            </p>
+<div class="flex items-center gap-1.5 pt-1">
+<button class="h-6 px-2.5 rounded bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-[11px] transition-colors">
+                Apply
+              </button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle border border-border-hairline text-on-surface font-label-medium text-[11px] transition-colors">
+                Edit
+              </button>
+<button class="h-6 px-2 rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface font-label-medium text-[11px] transition-colors">
+                Explain
+              </button>
+<button class="h-6 w-6 ml-auto rounded hover:bg-surface-subtle text-text-muted hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss Recommendation">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for interactive toggle states
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlayButtons = document.querySelectorAll('main button span.w-1\\.5');
+    overlayButtons.forEach(dot => {
+      const parent = dot.parentElement;
+      parent.addEventListener('click', () => {
+        parent.classList.toggle('opacity-50');
+      });
+    });
+  });
+</script></main></div></body></html>

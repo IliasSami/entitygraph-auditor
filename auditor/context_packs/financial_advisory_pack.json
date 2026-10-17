@@ -1,0 +1,48 @@
+{
+  "pack_id": "pack_builtin_financial_advisory",
+  "name": "Financial Services & Advisory Context Pack",
+  "version": "1.0.0",
+  "scope": "service",
+  "description": "SEC / FINRA regulatory compliance, risk warnings, and fiduciary disclosure rules.",
+  "brand_rules": [
+    {
+      "rule_id": "FIN-01",
+      "category": "compliance",
+      "statement": "All investment pages must include 'Past performance is no guarantee of future results' risk disclaimer.",
+      "severity": "critical"
+    },
+    {
+      "rule_id": "FIN-02",
+      "category": "fiduciary",
+      "statement": "Advisory services must explicitly state fiduciary status and fee structure (fee-only vs fee-based).",
+      "severity": "critical"
+    }
+  ],
+  "banned_terms": [
+    "guaranteed returns",
+    "risk-free profit",
+    "risk-free investment",
+    "can't lose investment",
+    "guaranteed 10x",
+    "surefire stock"
+  ],
+  "canonical_facts": [
+    {"key": "registration", "value": "SEC Registered Investment Adviser (RIA)"},
+    {"key": "disclaimer", "value": "Investing involves risk of loss including principal."},
+    {"key": "custodian", "value": "Client assets held at qualified independent custodians"}
+  ],
+  "approved_claims": [
+    {"claim": "Fee-only fiduciary advisory services", "status": "approved"},
+    {"claim": "SIPC protected accounts up to statutory limits", "status": "approved"}
+  ],
+  "topical_map_rows": [
+    {"topic": "Fee Schedule & Advisory Pricing (Form ADV Part 2A)", "importance": 5},
+    {"topic": "Fiduciary Duty & Conflict of Interest Disclosures", "importance": 5},
+    {"topic": "Investment Strategy & Asset Allocation Methodology", "importance": 4}
+  ],
+  "internal_link_targets": [
+    {"anchor": "form adv", "target_url": "/adv"},
+    {"anchor": "fee schedule", "target_url": "/fees"},
+    {"anchor": "risk disclosure", "target_url": "/disclosures"}
+  ]
+}

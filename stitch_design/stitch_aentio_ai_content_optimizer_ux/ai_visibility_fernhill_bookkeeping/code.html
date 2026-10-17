@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"dark-background":"#0C0C0E","tertiary-fixed-dim":"#79db8d","warning-soft":"#FFFBEB","tertiary-container":"#005f29","surface":"#FFFFFF","on-error":"#ffffff","success-soft":"#F0FDF4","secondary-container":"#4069f2","on-error-container":"#93000a","inverse-surface":"#33302d","primary-fixed-dim":"#c3c0ff","tertiary-fixed":"#95f8a7","surface-dim":"#e0d8d5","on-tertiary-fixed-variant":"#005323","surface-container-lowest":"#ffffff","surface-container-high":"#eee7e3","primary-soft":"#EEF2FF","on-secondary-fixed":"#001551","warning":"#B45309","danger":"#B91C1C","text-muted":"#78716C","on-tertiary":"#ffffff","border-hairline":"#E7E5E4","primary-fixed":"#e3dfff","surface-subtle":"#F5F5F4","on-background":"#1e1b19","surface-variant":"#e9e1dd","danger-soft":"#FEF2F2","on-secondary":"#ffffff","on-primary-fixed":"#100069","info-soft":"#EFF6FF","secondary-fixed-dim":"#b7c4ff","primary-hover":"#3730A3","primary":"#2a14b4","surface-container-low":"#faf2ee","secondary-fixed":"#dce1ff","dark-surface":"#16161A","primary-container":"#4338ca","tertiary":"#00451c","inverse-primary":"#c3c0ff","on-surface-variant":"#464554","dark-text":"#FAFAFA","outline-variant":"#c7c4d7","on-secondary-container":"#fffbff","dark-primary":"#818CF8","on-primary-fixed-variant":"#372abf","dark-border":"#27272A","on-primary":"#ffffff","on-primary-container":"#c1beff","surface-tint":"#5148d7","background-canvas":"#FAFAF9","on-tertiary-fixed":"#00210a","surface-container-highest":"#e9e1dd","inverse-on-surface":"#f7efeb","surface-container":"#f4ece8","background":"#fff8f5","outline":"#777586","secondary":"#1d4ed8","on-surface":"#1e1b19","error-container":"#ffdad6","error":"#ba1a1a","on-tertiary-container":"#78da8b","dark-text-muted":"#A1A1AA","on-secondary-fixed-variant":"#0039b5","surface-bright":"#fff8f5"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-xl":"2rem","margin":"1.5rem","space-md":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1rem"},"fontFamily":{"body-large":["Inter"],"body-small":["Inter"],"display-h1":["Inter"],"section-h2":["Inter"],"subsection-h3":["Inter"],"body-medium":["Inter"],"editor-prose":["\"Source Serif 4\""],"display-h1-mobile":["Inter"],"code-data":["JetBrains Mono"],"label-medium":["Inter"]},"fontSize":{"body-large":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-small":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-h1":["32px",{"lineHeight":"40px","fontWeight":"700"}],"section-h2":["24px",{"lineHeight":"32px","fontWeight":"600"}],"subsection-h3":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"400"}],"editor-prose":["18px",{"lineHeight":"30px","fontWeight":"400"}],"display-h1-mobile":["26px",{"lineHeight":"32px","fontWeight":"700"}],"code-data":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-medium":["13px",{"lineHeight":"16px","fontWeight":"500"}]}}}};</script></head><body class="bg-background-canvas text-on-surface font-body-medium text-body-medium antialiased selection:bg-primary-soft selection:text-primary-container"><aside class="fixed left-0 top-0 h-full w-[240px] bg-background-canvas z-50 flex flex-col justify-between border-r border-border-hairline"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center gap-space-sm border-b border-border-hairline"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center"><div class="w-2.5 h-2.5 bg-surface rotate-45 rounded-[1px]"></div></div><span class="font-section-h2 text-body-large font-semibold tracking-tight text-on-surface">Aentio</span></div><div class="p-space-xs"><button class="w-full flex items-center justify-between px-space-sm py-1.5 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle transition-colors" type="button"><div class="flex items-center gap-space-sm min-w-0"><div class="w-4 h-4 rounded bg-surface-subtle border border-border-hairline flex items-center justify-center flex-shrink-0 text-[10px] font-semibold text-text-muted">F</div><span class="font-label-medium text-label-medium text-on-surface truncate">Fernhill Bookkeeping</span></div><span class="material-symbols-outlined text-[16px] text-text-muted flex-shrink-0">unfold_more</span></button></div><nav class="flex flex-col gap-0.5 px-space-xs mt-space-xs" data-active-classes="bg-surface text-on-surface font-semibold shadow-[0_1px_2px_rgba(28,25,23,0.04)] border border-border-hairline"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="home" href="#"><span class="material-symbols-outlined text-[16px]">home</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="optimize" href="#"><span class="material-symbols-outlined text-[16px]">tune</span><span>Optimize</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="briefs" href="#"><span class="material-symbols-outlined text-[16px]">description</span><span>Briefs</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="library" href="#"><span class="material-symbols-outlined text-[16px]">folder</span><span>Library</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="entity-hub" href="#"><span class="material-symbols-outlined text-[16px]">hub</span><span>Entity Hub</span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 rounded-lg transition-colors bg-surface text-on-surface font-semibold shadow-[0_1px_2px_rgba(28,25,23,0.04)] border border-border-hairline" data-path="ai-visibility" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">visibility</span><span>AI Visibility</span></div><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span></a></nav></div><div class="p-space-xs border-t border-border-hairline flex flex-col gap-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-text-muted hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-small text-body-small" data-path="settings" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span>Settings</span></a><div class="flex items-center gap-space-sm px-space-sm py-1 rounded bg-surface border border-border-hairline"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim ring-2 ring-success-soft animate-pulse flex-shrink-0"></span><span class="font-code-data text-code-data text-text-muted truncate">Self-hosted · healthy</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-background-canvas/90 backdrop-blur-md border-b border-border-hairline z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-full max-w-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-[16px] text-text-muted">search</span><input class="w-full h-8 pl-8 pr-12 rounded-lg bg-surface border border-border-hairline font-body-small text-body-small text-on-surface placeholder:text-text-muted focus:outline-none cursor-pointer shadow-[0_1px_2px_rgba(28,25,23,0.02)]" placeholder="Search or jump to..." readonly="" type="text"/><div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 px-1.5 py-0.5 rounded border border-border-hairline bg-surface-subtle font-code-data text-[10px] text-text-muted"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-success-soft border border-border-hairline"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span><span class="font-body-small text-body-small text-tertiary font-medium">Agent active</span></div><div class="h-4 w-px bg-border-hairline"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="font-label-medium text-label-medium text-on-surface">Sami</span></div></div></header><main class="relative pt-14 w-full min-h-screen bg-background-canvas px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Command & Header Zone -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<!-- Breadcrumb & Status Super-header -->
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-space-sm text-text-muted font-body-small">
+<span>Workspace</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+<span class="text-on-surface font-label-medium">AI Visibility</span>
+<span class="h-3 w-px bg-border-hairline mx-1"></span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface border border-border-hairline text-text-muted font-code-data text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+          Cluster: Austin Agency Verticals (Active)
+        </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-3 h-8 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-body-small transition-colors shadow-[0_1px_2px_rgba(28,25,23,0.03)]" type="button">
+<span class="material-symbols-outlined text-[15px] text-text-muted">refresh</span>
+<span>Run now</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 h-8 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-body-small transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add prompts</span>
+</button>
+</div>
+</div>
+<!-- Title and Subtitle Block -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-section-h2 text-section-h2 text-on-surface font-semibold tracking-tight">AI Visibility</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-primary-soft text-primary-container font-label-medium text-[11px] font-semibold tracking-wide uppercase border border-primary-fixed-dim/40">
+            AEO / GEO Citation Tracking
+          </span>
+</div>
+<p class="font-body-small text-text-muted text-body-small mt-1">
+          Sampled generative engine retrieval analysis across localized semantic answer graphs. Directional heuristics based on multi-turn prompt executions.
+        </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto text-text-muted font-code-data text-[12px]">
+<span class="material-symbols-outlined text-[15px]">sensors</span>
+<span>Configured local &amp; API engines</span>
+</div>
+</div>
+<!-- Filter Bar: Clusters & Engine Pills -->
+<div class="flex flex-wrap items-center justify-between gap-y-3 pt-space-xs border-b border-border-hairline pb-3">
+<!-- Tabs for Prompt Clusters -->
+<div class="flex items-center gap-1 bg-surface-subtle p-0.5 rounded-lg border border-border-hairline overflow-x-auto">
+<button class="px-2.5 py-1 rounded-md font-label-medium text-body-small text-text-muted hover:text-on-surface transition-colors whitespace-nowrap" type="button">
+          All Prompts <span class="font-code-data text-[11px] opacity-70 ml-1">18</span>
+</button>
+<button class="px-2.5 py-1 rounded-md font-label-medium text-body-small bg-surface text-on-surface shadow-[0_1px_2px_rgba(28,25,23,0.06)] border border-border-hairline whitespace-nowrap font-medium" type="button">
+          Pricing <span class="font-code-data text-[11px] text-primary-container font-semibold ml-1">5</span>
+</button>
+<button class="px-2.5 py-1 rounded-md font-label-medium text-body-small text-text-muted hover:text-on-surface transition-colors whitespace-nowrap" type="button">
+          Comparisons <span class="font-code-data text-[11px] opacity-70 ml-1">4</span>
+</button>
+<button class="px-2.5 py-1 rounded-md font-label-medium text-body-small text-text-muted hover:text-on-surface transition-colors whitespace-nowrap" type="button">
+          How-to &amp; Process <span class="font-code-data text-[11px] opacity-70 ml-1">6</span>
+</button>
+<button class="px-2.5 py-1 rounded-md font-label-medium text-body-small text-text-muted hover:text-on-surface transition-colors whitespace-nowrap" type="button">
+          Brand &amp; Authority <span class="font-code-data text-[11px] opacity-70 ml-1">3</span>
+</button>
+</div>
+<!-- Engine Filter Chips -->
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-body-small text-text-muted text-[12px] mr-1 hidden sm:inline">Engines:</span>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border-hairline font-code-data text-[12px] text-on-surface shadow-[0_1px_1px_rgba(0,0,0,0.02)] hover:bg-surface-subtle" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+          ChatGPT-4o (Search)
+        </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border-hairline font-code-data text-[12px] text-on-surface shadow-[0_1px_1px_rgba(0,0,0,0.02)] hover:bg-surface-subtle" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+          Perplexity Pro
+        </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border-hairline font-code-data text-[12px] text-on-surface shadow-[0_1px_1px_rgba(0,0,0,0.02)] hover:bg-surface-subtle" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Claude 3.5 Sonnet
+        </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border-hairline font-code-data text-[12px] text-on-surface shadow-[0_1px_1px_rgba(0,0,0,0.02)] hover:bg-surface-subtle" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+          Google AI Overview
+        </button>
+</div>
+</div>
+</div>
+<!-- Primary Metric Summary Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mb-space-md">
+<!-- Metric 1: Mention Rate -->
+<div class="bg-surface border border-border-hairline rounded-xl p-3.5 flex items-center justify-between shadow-[0_1px_2px_rgba(28,25,23,0.02)]">
+<div class="flex flex-col">
+<span class="font-body-small text-text-muted text-[12px] uppercase tracking-wider font-medium">Avg Mention Rate</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-section-h2 text-section-h2 font-bold text-on-surface font-code-data">38%</span>
+<span class="font-body-small text-[12px] text-text-muted">across 5 sampled runs</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-subtle border border-border-hairline flex items-center justify-center flex-shrink-0">
+<!-- Radial spark/indicator mini SVG -->
+<svg class="w-6 h-6 text-primary-container" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" opacity="0.4" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="38, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+</div>
+</div>
+<!-- Metric 2: Citations Captured -->
+<div class="bg-surface border border-border-hairline rounded-xl p-3.5 flex items-center justify-between shadow-[0_1px_2px_rgba(28,25,23,0.02)]">
+<div class="flex flex-col">
+<span class="font-body-small text-text-muted text-[12px] uppercase tracking-wider font-medium">Citations Captured</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-section-h2 text-section-h2 font-bold text-on-surface font-code-data">6<span class="text-text-muted font-normal text-body-large">/18</span></span>
+<span class="font-body-small text-[12px] text-tertiary font-medium bg-success-soft px-1.5 py-0.5 rounded border border-tertiary-fixed/30">+1 from last cycle</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-subtle border border-border-hairline flex items-center justify-center text-on-surface flex-shrink-0">
+<span class="material-symbols-outlined text-[20px] text-tertiary">verified</span>
+</div>
+</div>
+<!-- Metric 3: Primary Blocker -->
+<div class="bg-surface border border-border-hairline rounded-xl p-3.5 flex items-center justify-between shadow-[0_1px_2px_rgba(28,25,23,0.02)]">
+<div class="flex flex-col min-w-0 pr-2">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+<span class="font-body-small text-text-muted text-[12px] uppercase tracking-wider font-medium">Primary Blocker</span>
+</div>
+<span class="font-label-medium text-body-small text-on-surface truncate font-semibold mt-1" title="Pricing &amp; hourly rates omitted from public entity schema">
+          Pricing &amp; hourly rates omitted from public entity schema
+        </span>
+</div>
+<a class="px-2.5 py-1 rounded bg-surface-subtle hover:bg-surface border border-border-hairline font-code-data text-[11px] text-on-surface flex items-center gap-1 flex-shrink-0 transition-colors" href="#">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Main Content Split (Table vs Detail Pane) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left / Center Viewport (approx 65% width) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-sm w-full">
+<!-- Table Filter and Search Header -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm bg-surface p-2.5 rounded-t-xl border-t border-x border-border-hairline">
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-[16px] text-text-muted">search</span>
+<input class="w-full h-8 pl-8 pr-3 rounded-md bg-surface-subtle border border-border-hairline font-body-small text-body-small text-on-surface placeholder:text-text-muted focus:outline-none focus:bg-surface focus:ring-1 focus:ring-primary-container transition-all" placeholder="Filter tracked queries..." type="text" value=""/>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<div class="flex items-center rounded-lg border border-border-hairline p-0.5 bg-surface-subtle">
+<button class="px-2 py-0.5 rounded text-[11px] font-label-medium bg-surface text-on-surface shadow-[0_1px_1px_rgba(0,0,0,0.03)] border border-border-hairline" type="button">All Statuses</button>
+<button class="px-2 py-0.5 rounded text-[11px] font-label-medium text-text-muted hover:text-on-surface" type="button">Cited (2)</button>
+<button class="px-2 py-0.5 rounded text-[11px] font-label-medium text-text-muted hover:text-on-surface" type="button">Absent (3)</button>
+</div>
+<button class="p-1 rounded border border-border-hairline bg-surface hover:bg-surface-subtle text-text-muted" title="Table Display Density" type="button">
+<span class="material-symbols-outlined text-[16px]">view_column</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="w-full overflow-x-auto bg-surface border-x border-b border-border-hairline rounded-b-xl shadow-[0_1px_3px_rgba(28,25,23,0.02)]">
+<table class="w-full text-left border-collapse font-body-small text-body-small min-w-[760px]">
+<thead>
+<tr class="bg-surface-subtle text-text-muted border-b border-border-hairline font-label-medium text-[12px] select-none">
+<th class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-2.5 px-2 font-medium">Prompt Query</th>
+<th class="py-2.5 px-2 font-medium">Engines Tested</th>
+<th class="py-2.5 px-2 font-medium text-center">Mention Rate</th>
+<th class="py-2.5 px-2 font-medium">Status</th>
+<th class="py-2.5 px-2 font-medium">Our URL Cited</th>
+<th class="py-2.5 px-2 font-medium">Competitors Cited</th>
+<th class="py-2.5 px-2 font-medium text-center">30d Trend</th>
+<th class="py-2.5 px-3 font-medium text-right">Last Run</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-hairline text-[13px]">
+<!-- ROW 1 (SELECTED / ACTIVE) -->
+<tr class="bg-primary-soft/40 hover:bg-primary-soft/60 cursor-pointer transition-colors relative" id="row-selected">
+<td class="py-2.5 px-3 w-8 border-l-2 border-primary-container">
+<input checked="" class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<div class="flex items-center gap-1.5 max-w-[220px]">
+<span class="material-symbols-outlined text-[15px] text-primary-container flex-shrink-0">arrow_right</span>
+<span class="truncate font-semibold text-on-surface" title="how much does agency bookkeeping cost">how much does agency bookkeeping cost</span>
+</div>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted" title="ChatGPT-4o">GPT-4o</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted" title="Perplexity">Perp</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted" title="Claude">Claude</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted" title="AI Overview">AIO</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-danger">
+                0/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-danger-soft text-danger border border-danger/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-danger"></span>
+                  Absent
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[12px] text-text-muted truncate max-w-[120px]">
+                — None
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[160px] truncate" title="bench.co, pilot.com, igniteagencyadvisors.com">
+                bench.co, pilot.com, ignite...
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-text-muted inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">horizontal_rule</span>
+                  flat
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                2h ago
+              </td>
+</tr>
+<!-- ROW 2 -->
+<tr class="hover:bg-surface-subtle cursor-pointer transition-colors">
+<td class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<span class="truncate block max-w-[220px]" title="best bookkeeping service for creative agencies in Austin">
+                  best bookkeeping service for creative agencies in Austin
+                </span>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">GPT-4o</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Perp</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Claude</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-tertiary">
+                4/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-soft text-tertiary border border-tertiary/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+                  Cited
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[12px] text-primary-container truncate max-w-[130px]" title="fernhillcfo.com/services/agency-bookkeeping">
+                .../agency-bookkeeping
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[150px] truncate" title="austinbookkeepinghub.com">
+                austinbookkeepinghub.com
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-tertiary inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+                  +20%
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                2h ago
+              </td>
+</tr>
+<!-- ROW 3 -->
+<tr class="hover:bg-surface-subtle cursor-pointer transition-colors">
+<td class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<span class="truncate block max-w-[220px]" title="fractional CFO vs bookkeeper for 10-person design studio">
+                  fractional CFO vs bookkeeper for 10-person design studio
+                </span>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">GPT-4o</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Perp</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Claude</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">AIO</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-secondary">
+                2/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-info-soft text-secondary border border-secondary/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Mentioned
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[11px] text-text-muted truncate max-w-[130px]" title="— None (unlinked brand mention)">
+                — Unlinked brand
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[150px] truncate" title="thecreativecfo.com, pilot.com">
+                thecreativecfo.com, pilot...
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-danger inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">trending_down</span>
+                  -15%
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                5h ago
+              </td>
+</tr>
+<!-- ROW 4 -->
+<tr class="hover:bg-surface-subtle cursor-pointer transition-colors">
+<td class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<span class="truncate block max-w-[220px]" title="creative studio retainer burn and project job costing">
+                  creative studio retainer burn and project job costing
+                </span>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Perp</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Claude</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-warning">
+                1/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-soft text-warning border border-warning/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                  Absent
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[12px] text-text-muted truncate max-w-[130px]">
+                — None
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[150px] truncate" title="studioledger.co">
+                studioledger.co
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-text-muted inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">horizontal_rule</span>
+                  flat
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                1d ago
+              </td>
+</tr>
+<!-- ROW 5 -->
+<tr class="hover:bg-surface-subtle cursor-pointer transition-colors">
+<td class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<span class="truncate block max-w-[220px]" title="Xero setup and contractor 1099 compliance for agencies">
+                  Xero setup and contractor 1099 compliance for agencies
+                </span>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">GPT-4o</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Claude</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-tertiary">
+                3/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-soft text-tertiary border border-tertiary/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+                  Cited
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[12px] text-primary-container truncate max-w-[130px]" title="fernhillcfo.com/insights/xero-vs-qbo">
+                .../insights/xero-vs-qbo
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[150px] truncate" title="bench.co">
+                bench.co
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-tertiary inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+                  +10%
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                1d ago
+              </td>
+</tr>
+<!-- ROW 6 -->
+<tr class="hover:bg-surface-subtle cursor-pointer transition-colors">
+<td class="py-2.5 px-3 w-8">
+<input class="w-3.5 h-3.5 rounded border-border-hairline text-primary-container focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2 font-medium text-on-surface">
+<span class="truncate block max-w-[220px]" title="typical monthly retainer for boutique marketing agency accounting">
+                  typical monthly retainer for boutique marketing agency accounting
+                </span>
+</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1 font-code-data text-[10px]">
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">GPT-4o</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Perp</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">Claude</span>
+<span class="px-1 py-0.5 rounded bg-surface border border-border-hairline text-text-muted">AIO</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-center font-code-data text-[12px] font-medium text-danger">
+                0/5 runs
+              </td>
+<td class="py-2.5 px-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-danger-soft text-danger border border-danger/20 font-code-data text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-danger"></span>
+                  Absent
+                </span>
+</td>
+<td class="py-2.5 px-2 font-code-data text-[12px] text-text-muted truncate max-w-[130px]">
+                — None
+              </td>
+<td class="py-2.5 px-2 text-text-muted font-code-data text-[11px] max-w-[150px] truncate" title="benchmarkagencyfinance.com, pilot.com">
+                benchmarkagencyfinan...
+              </td>
+<td class="py-2.5 px-2 text-center">
+<span class="font-code-data text-[11px] text-text-muted inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">horizontal_rule</span>
+                  flat
+                </span>
+</td>
+<td class="py-2.5 px-3 text-right font-code-data text-[11px] text-text-muted whitespace-nowrap">
+                2d ago
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Sampling Footer Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between text-text-muted font-body-small text-[12px] px-1 py-1">
+<span class="font-code-data">Showing 6 of 18 tracked prompts · Cluster last audited 2h ago</span>
+<div class="flex items-center gap-2 mt-2 sm:mt-0">
+<span class="font-code-data text-[11px]">Page 1 of 3</span>
+<div class="flex items-center border border-border-hairline rounded bg-surface">
+<button class="px-2 py-1 hover:bg-surface-subtle disabled:opacity-30" disabled="" type="button">
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+</button>
+<div class="w-px h-4 bg-border-hairline"></div>
+<button class="px-2 py-1 hover:bg-surface-subtle" type="button">
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Intelligence Detail Inspector (approx 35% width / 420px max) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md bg-surface border border-border-hairline rounded-xl p-space-md shadow-[0_2px_8px_rgba(28,25,23,0.03)]">
+<!-- Panel Header: Selected Context -->
+<div class="flex flex-col gap-2 border-b border-border-hairline pb-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-code-data text-[11px] text-text-muted uppercase tracking-wider">Prompt Inspector</span>
+<span class="font-code-data text-[11px] text-text-muted flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-danger"></span>
+            ID: P-8821
+          </span>
+</div>
+<h2 class="font-subsection-h3 text-body-large font-semibold text-on-surface leading-snug">
+          “how much does agency bookkeeping cost”
+        </h2>
+<!-- Prompt Status Banner -->
+<div class="mt-1 flex items-center justify-between px-3 py-2 rounded-lg bg-danger-soft border border-danger/15 text-danger font-body-small text-[12px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">error</span>
+<span class="font-medium">0/5 runs cited Fernhill Bookkeeping</span>
+</div>
+<span class="font-code-data text-[11px] uppercase tracking-wide px-1.5 py-0.2 rounded bg-surface border border-danger/20 font-semibold">Absent</span>
+</div>
+</div>
+<!-- Section 1: AI Answer Synthesis Snapshot -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-label-medium text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">psychology</span>
+            Answer Synthesis Snapshot
+          </span>
+<span class="font-code-data text-[11px] text-text-muted">Perplexity &amp; ChatGPT-4o</span>
+</div>
+<div class="p-3 bg-surface-subtle border border-border-hairline rounded-lg font-editor-prose text-body-small text-on-surface leading-relaxed relative">
+<p class="italic text-[13px] text-on-surface/90">
+            “For creative and boutique marketing agencies, monthly bookkeeping services typically range from 
+            <mark class="bg-warning-soft text-warning px-1 rounded font-code-data font-semibold not-italic">$250 to $600/month</mark> 
+            for early-stage setups with basic revenue recognition. Established agencies relying on platforms like 
+            <mark class="bg-primary-soft text-primary-container px-1 rounded font-label-medium not-italic font-medium">Pilot</mark> 
+            or 
+            <mark class="bg-primary-soft text-primary-container px-1 rounded font-label-medium not-italic font-medium">Bench</mark> 
+            often pay $800 to $1,500/month when multi-currency invoicing, contractor 1099 tracking, and monthly job-costing margins are included.”
+          </p>
+<div class="mt-3 pt-2.5 border-t border-border-hairline/80 flex items-start gap-2 text-text-muted font-body-small text-[12px]">
+<span class="material-symbols-outlined text-[16px] text-danger mt-0.5 flex-shrink-0">flag</span>
+<span><strong>Fernhill Bookkeeping</strong> was not retrieved or cited in any of the 5 sampled runs across conversational models.</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Sources Cited by AI Engines -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-label-medium text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">link</span>
+            Sources Cited by AI Engines
+          </span>
+<span class="font-code-data text-[11px] text-text-muted">Top 3 Competitors</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Competitor URL 1 -->
+<div class="flex items-center justify-between p-2 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle transition-colors">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-code-data text-[12px] text-on-surface truncate font-medium">benchmarkagencyfinance.com</span>
+<span class="font-code-data text-[10px] text-text-muted truncate">/creative-accounting-benchmark-2026</span>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="font-code-data text-[11px] font-semibold text-tertiary bg-success-soft px-1.5 py-0.5 rounded border border-tertiary/20">5/5 runs</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">open_in_new</span>
+</div>
+</div>
+<!-- Competitor URL 2 -->
+<div class="flex items-center justify-between p-2 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle transition-colors">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-code-data text-[12px] text-on-surface truncate font-medium">pilot.com</span>
+<span class="font-code-data text-[10px] text-text-muted truncate">/blog/agency-accounting-pricing-guide</span>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="font-code-data text-[11px] font-semibold text-tertiary bg-success-soft px-1.5 py-0.5 rounded border border-tertiary/20">4/5 runs</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">open_in_new</span>
+</div>
+</div>
+<!-- Competitor URL 3 -->
+<div class="flex items-center justify-between p-2 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle transition-colors">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-code-data text-[12px] text-on-surface truncate font-medium">bench.co</span>
+<span class="font-code-data text-[10px] text-text-muted truncate">/pricing-breakdown-marketing-firms</span>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="font-code-data text-[11px] font-semibold text-text-muted bg-surface-subtle px-1.5 py-0.5 rounded border border-border-hairline">3/5 runs</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">open_in_new</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Missing Attributes Checklist -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-label-medium text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">rule</span>
+            Missing Semantic Schema Attributes
+          </span>
+<span class="font-code-data text-[11px] text-danger font-medium">4 gaps detected</span>
+</div>
+<div class="flex flex-col divide-y divide-border-hairline rounded-lg border border-border-hairline bg-surface text-[12px]">
+<!-- Item 1: Present -->
+<div class="p-2 flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Definition: Creative agency bookkeeping scope</span>
+<span class="font-code-data text-[10px] text-tertiary">Present on public page /pricing</span>
+</div>
+</div>
+<!-- Item 2: Missing -->
+<div class="p-2 flex items-start gap-2 bg-danger-soft/30">
+<span class="material-symbols-outlined text-[16px] text-danger flex-shrink-0 mt-0.5">cancel</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Pricing: Clear starting tiers ($349/mo) in direct answer</span>
+<span class="font-code-data text-[10px] text-danger font-medium">Missing direct answer format · buried in long paragraphs</span>
+</div>
+</div>
+<!-- Item 3: Present -->
+<div class="p-2 flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Comparison: Bookkeeping vs Fractional CFO rate bands</span>
+<span class="font-code-data text-[10px] text-tertiary">Present in FAQ section</span>
+</div>
+</div>
+<!-- Item 4: Missing -->
+<div class="p-2 flex items-start gap-2 bg-danger-soft/30">
+<span class="material-symbols-outlined text-[16px] text-danger flex-shrink-0 mt-0.5">cancel</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Process: Weekly sync &amp; milestone burn tracking</span>
+<span class="font-code-data text-[10px] text-danger font-medium">Missing from public JSON-LD Schema</span>
+</div>
+</div>
+<!-- Item 5: Missing -->
+<div class="p-2 flex items-start gap-2 bg-danger-soft/30">
+<span class="material-symbols-outlined text-[16px] text-danger flex-shrink-0 mt-0.5">cancel</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Proof: Austin market benchmarks &amp; client team size</span>
+<span class="font-code-data text-[10px] text-danger font-medium">Missing verifiable citation anchor</span>
+</div>
+</div>
+<!-- Item 6: Missing -->
+<div class="p-2 flex items-start gap-2 bg-danger-soft/30">
+<span class="material-symbols-outlined text-[16px] text-danger flex-shrink-0 mt-0.5">cancel</span>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface">Limitations: Explicit starter package exclusions</span>
+<span class="font-code-data text-[10px] text-danger font-medium">Omitted from scope boundaries</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Action Deck -->
+<div class="flex flex-col gap-2 pt-2 border-t border-border-hairline">
+<button class="w-full h-9 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary font-label-medium text-body-small flex items-center justify-center gap-2 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+<span>Fix in Optimizer</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="flex-1 h-8 rounded-lg bg-surface border border-border-hairline hover:bg-surface-subtle text-on-surface font-label-medium text-body-small flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px] text-text-muted">add_task</span>
+<span>Create Brief</span>
+</button>
+<button class="h-8 px-3 rounded-lg border border-border-hairline bg-surface hover:bg-surface-subtle text-text-muted hover:text-on-surface font-code-data text-[11px] flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">data_object</span>
+<span>Raw JSON</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Methodology Disclaimer Footer -->
+<div class="mt-space-lg pt-space-md border-t border-border-hairline flex flex-col md:flex-row md:items-center justify-between gap-space-sm text-text-muted font-body-small text-[12px]">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-text-muted mt-0.5">info</span>
+<p class="leading-relaxed">
+<strong>Methodology:</strong> 5 sampled runs per engine · Sampled Oct 14, 2026 · AI answers vary and are non-deterministic — treat scores as directional heuristics. Non-API engines marked as manual snapshot.
+      </p>
+</div>
+<div class="flex items-center gap-3 font-code-data text-[11px] flex-shrink-0">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+        Runner: local-daemon-v2
+      </span>
+<span>Seed: #04928</span>
+</div>
+</div>
+</div>
+<!-- Inline Interaction Logic -->
+<script>
+  (function() {
+    // Add row selection toggling behavior
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      row.addEventListener('click', (e) => {
+        // Prevent action if clicking directly on a link or button
+        if (e.target.closest('a') || e.target.closest('button')) return;
+
+        rows.forEach(r => {
+          r.classList.remove('bg-primary-soft/40', 'hover:bg-primary-soft/60');
+          const firstCell = r.querySelector('td:first-child');
+          if (firstCell) {
+            firstCell.classList.remove('border-l-2', 'border-primary-container');
+          }
+          const check = r.querySelector('input[type="checkbox"]');
+          if (check && e.target.type !== 'checkbox') {
+            check.checked = false;
+          }
+        });
+
+        row.classList.add('bg-primary-soft/40', 'hover:bg-primary-soft/60');
+        const activeFirstCell = row.querySelector('td:first-child');
+        if (activeFirstCell) {
+          activeFirstCell.classList.add('border-l-2', 'border-primary-container');
+        }
+        const activeCheck = row.querySelector('input[type="checkbox"]');
+        if (activeCheck && e.target.type !== 'checkbox') {
+          activeCheck.checked = true;
+        }
+      });
+    });
+  })();
+</script></main></div></body></html>

@@ -1,0 +1,47 @@
+{
+  "pack_id": "pack_builtin_saas_b2b",
+  "name": "SaaS B2B Context Pack",
+  "version": "1.0.0",
+  "scope": "saas_b2b",
+  "description": "Standard brand rules, technical attributes, and banned claims for B2B SaaS applications.",
+  "brand_rules": [
+    {
+      "rule_id": "SAAS-01",
+      "category": "compliance",
+      "statement": "Enterprise security claims (SOC-2, ISO-27001, HIPAA) must specify verification tier or audit year.",
+      "severity": "critical"
+    },
+    {
+      "rule_id": "SAAS-02",
+      "category": "clarity",
+      "statement": "Product capabilities must specify target user personas and API integration capabilities.",
+      "severity": "medium"
+    }
+  ],
+  "banned_terms": [
+    "guaranteed 100% uptime",
+    "unhackable",
+    "unlimited free scale",
+    "zero latency"
+  ],
+  "canonical_facts": [
+    {"key": "architecture", "value": "Multi-tenant cloud or dedicated single-tenant VPC"},
+    {"key": "sla", "value": "99.9% to 99.99% standard availability tiers"},
+    {"key": "support", "value": "24/7 technical support for enterprise tiers"}
+  ],
+  "approved_claims": [
+    {"claim": "AES-256 encryption at rest", "status": "approved"},
+    {"claim": "TLS 1.3 in transit", "status": "approved"},
+    {"claim": "SOC-2 Type II certified infrastructure", "status": "approved"}
+  ],
+  "topical_map_rows": [
+    {"topic": "Enterprise Security & Compliance", "importance": 5},
+    {"topic": "API & Integration Architecture", "importance": 4},
+    {"topic": "Pricing & Tier Breakdown", "importance": 4}
+  ],
+  "internal_link_targets": [
+    {"anchor": "documentation", "target_url": "/docs"},
+    {"anchor": "pricing plans", "target_url": "/pricing"},
+    {"anchor": "security whitepaper", "target_url": "/security"}
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "pack_id": "pack_builtin_healthcare_local",
+  "name": "Local Healthcare Practice Context Pack",
+  "version": "1.0.0",
+  "scope": "local_service",
+  "description": "Clinical compliance, medical licensing, and disclaimer rules for local clinics and healthcare providers.",
+  "brand_rules": [
+    {
+      "rule_id": "HLTH-01",
+      "category": "compliance",
+      "statement": "Medical treatments must cite licensed medical practitioners (MD, DO, NP, PA) and avoid outcome guarantees.",
+      "severity": "critical"
+    },
+    {
+      "rule_id": "HLTH-02",
+      "category": "disclaimer",
+      "statement": "Emergency medical disclaimer must be present on all clinical care pages.",
+      "severity": "critical"
+    }
+  ],
+  "banned_terms": [
+    "100% cure guaranteed",
+    "miracle cure",
+    "miracle treatment",
+    "risk-free surgery",
+    "painless guarantee",
+    "instant relief guaranteed"
+  ],
+  "canonical_facts": [
+    {"key": "credentials", "value": "State Medical Board Licensed MD / DO / NP"},
+    {"key": "emergency_protocol", "value": "Emergency: Call 911 or visit nearest hospital emergency room"},
+    {"key": "hipaa_compliance", "value": "Patient health records protected under HIPAA Privacy Rule"}
+  ],
+  "approved_claims": [
+    {"claim": "Board-certified clinical staff", "status": "approved"},
+    {"claim": "HIPAA compliant electronic health records", "status": "approved"}
+  ],
+  "topical_map_rows": [
+    {"topic": "Accepted Insurance & Payment Options", "importance": 5},
+    {"topic": "Clinic Location, Parking, & Hours of Operation", "importance": 5},
+    {"topic": "Physician Qualifications & Clinical Specialization", "importance": 4}
+  ],
+  "internal_link_targets": [
+    {"anchor": "patient portal", "target_url": "/portal"},
+    {"anchor": "insurance plans", "target_url": "/insurance"},
+    {"anchor": "emergency disclaimer", "target_url": "/disclaimer"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "mcp": {
+    "servers": {
+      "entitygraph-auditor": {
+        "type": "local",
+        "command": [
+          "/Users/sami/Desktop/Entity Scoring System/.venv/bin/python",
+          "-m",
+          "ega_mcp.server"
+        ],
+        "environment": {
+          "PYTHONPATH": "/Users/sami/Desktop/Entity Scoring System/packages/mcp:/Users/sami/Desktop/Entity Scoring System/packages/schemas:/Users/sami/Desktop/Entity Scoring System/packages/parsers:/Users/sami/Desktop/Entity Scoring System/packages/scoring:/Users/sami/Desktop/Entity Scoring System/auditor"
+        }
+      }
+    }
+  }
+}

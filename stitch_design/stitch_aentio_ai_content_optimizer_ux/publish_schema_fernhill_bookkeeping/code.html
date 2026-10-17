@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-fixed-dim":"#79db8d","border-hairline":"#E7E5E4","secondary-fixed-dim":"#b7c4ff","on-error-container":"#93000a","dark-background":"#0C0C0E","info-soft":"#EFF6FF","primary":"#2a14b4","tertiary-container":"#005f29","surface-tint":"#5148d7","surface-container-lowest":"#ffffff","on-tertiary-fixed":"#00210a","surface-container":"#f4ece8","tertiary-fixed":"#95f8a7","inverse-surface":"#33302d","text-muted":"#78716C","on-error":"#ffffff","on-secondary":"#ffffff","surface-container-highest":"#e9e1dd","primary-hover":"#3730A3","error":"#ba1a1a","surface-dim":"#e0d8d5","on-secondary-fixed":"#001551","surface-subtle":"#F5F5F4","surface":"#FFFFFF","error-container":"#ffdad6","outline-variant":"#c7c4d7","dark-primary":"#818CF8","tertiary":"#00451c","secondary-fixed":"#dce1ff","primary-fixed":"#e3dfff","on-surface-variant":"#464554","on-background":"#1e1b19","danger-soft":"#FEF2F2","on-tertiary":"#ffffff","surface-variant":"#e9e1dd","on-primary":"#ffffff","background-canvas":"#FAFAF9","on-tertiary-container":"#78da8b","on-secondary-container":"#fffbff","on-surface":"#1e1b19","warning":"#B45309","inverse-on-surface":"#f7efeb","primary-fixed-dim":"#c3c0ff","inverse-primary":"#c3c0ff","dark-surface":"#16161A","success-soft":"#F0FDF4","danger":"#B91C1C","background":"#fff8f5","dark-text-muted":"#A1A1AA","primary-soft":"#EEF2FF","surface-container-high":"#eee7e3","surface-container-low":"#faf2ee","secondary-container":"#4069f2","on-primary-container":"#c1beff","dark-border":"#27272A","dark-text":"#FAFAFA","on-primary-fixed":"#100069","on-primary-fixed-variant":"#372abf","on-secondary-fixed-variant":"#0039b5","surface-bright":"#fff8f5","warning-soft":"#FFFBEB","on-tertiary-fixed-variant":"#005323","outline":"#777586","primary-container":"#4338ca","secondary":"#1d4ed8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","margin":"1.5rem","gutter":"1rem","space-xl":"2rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem"},"fontFamily":{"body-small":["Inter"],"subsection-h3":["Inter"],"display-h1":["Inter"],"section-h2":["Inter"],"code-data":["JetBrains Mono"],"body-large":["Inter"],"editor-prose":["\"Source Serif 4\""],"label-medium":["Inter"],"body-medium":["Inter"],"display-h1-mobile":["Inter"]},"fontSize":{"body-small":["13px",{"lineHeight":"18px","fontWeight":"400"}],"subsection-h3":["20px",{"lineHeight":"28px","fontWeight":"600"}],"display-h1":["32px",{"lineHeight":"40px","fontWeight":"700"}],"section-h2":["24px",{"lineHeight":"32px","fontWeight":"600"}],"code-data":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-large":["16px",{"lineHeight":"24px","fontWeight":"400"}],"editor-prose":["18px",{"lineHeight":"30px","fontWeight":"400"}],"label-medium":["13px",{"lineHeight":"16px","fontWeight":"500"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-h1-mobile":["26px",{"lineHeight":"32px","fontWeight":"700"}]}}}}</script></head><body class="bg-background-canvas font-body-medium text-body-medium text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface z-50 flex flex-col justify-between border-r border-border-hairline"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between border-b border-border-hairline"><div class="flex items-center gap-2"><div class="w-6 h-6 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-bold text-xs"><span class="material-symbols-outlined text-[16px]">polyline</span></div><span class="font-section-h2 text-body-large text-on-surface tracking-tight font-semibold">Aentio</span></div><span class="text-[10px] font-code-data text-code-data font-medium text-text-muted bg-surface-subtle px-1.5 py-0.5 rounded border border-border-hairline">v1.4</span></div><div class="p-space-sm border-b border-border-hairline"><button class="w-full flex items-center justify-between p-2 rounded-lg bg-surface-subtle hover:bg-surface-container transition-colors text-left border border-border-hairline group"><div class="flex flex-col min-w-0 pr-1"><span class="text-xs font-label-medium text-on-surface truncate font-medium">Fernhill Bookkeeping</span><span class="text-[11px] font-body-small text-text-muted truncate">Austin, TX creative accounting</span></div><span class="material-symbols-outlined text-text-muted group-hover:text-on-surface text-[18px] shrink-0">unfold_more</span></button></div><div class="px-space-xs py-space-sm"><div class="px-space-sm pb-1 text-[11px] font-label-medium font-semibold uppercase tracking-wider text-text-muted">Workspace</div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-soft text-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a aria-current="page" class="flex items-center gap-2.5 px-space-sm py-1.5 rounded-lg transition-colors bg-primary-soft text-primary font-medium border-l-2 border-primary" data-path="optimize" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span>Optimize</span></a><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="briefs" href="#"><span class="material-symbols-outlined text-[18px]">description</span><span>Briefs</span></a><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="library" href="#"><span class="material-symbols-outlined text-[18px]">folder_open</span><span>Library</span></a><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="entity-hub" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span>Entity Hub</span></a><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="ai-visibility" href="#"><span class="material-symbols-outlined text-[18px]">visibility</span><span>AI Visibility</span></a></nav></div></div><div class="flex flex-col p-space-sm border-t border-border-hairline gap-2"><nav class="flex flex-col" data-active-classes="bg-primary-soft text-primary font-medium"><a class="flex items-center gap-2.5 px-space-sm py-1.5 text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface rounded-lg transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 bg-success-soft rounded-full border border-border-hairline"><div class="flex items-center gap-1.5 min-w-0"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse shrink-0"></span><span class="text-[11px] font-code-data text-code-data font-medium text-tertiary-container truncate">Self-hosted · healthy</span></div><span class="material-symbols-outlined text-[14px] text-tertiary-container shrink-0">check_circle</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface/90 backdrop-blur-md z-40 border-b border-border-hairline flex items-center justify-between px-space-md"><div class="flex items-center gap-space-sm flex-1 max-w-md"><div class="w-full flex items-center justify-between bg-surface-subtle hover:bg-surface-container border border-border-hairline rounded-lg px-2.5 py-1.5 text-text-muted transition-colors cursor-pointer"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-text-muted">search</span><span class="text-body-small font-body-small text-text-muted">Search entities, briefs, schemas...</span></div><div class="flex items-center gap-0.5"><kbd class="px-1.5 py-0.5 text-[11px] font-code-data text-code-data bg-surface border border-border-hairline rounded text-text-muted shadow-sm">⌘K</kbd></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-subtle border border-border-hairline"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="text-[12px] font-label-medium text-label-medium text-on-surface-variant font-medium">Agent active</span></div><div class="h-4 w-[1px] bg-border-hairline"></div><div class="flex items-center gap-2 pl-1 cursor-pointer"><div class="flex flex-col text-right"><span class="text-body-small font-body-small font-semibold text-on-surface leading-none">Sami</span><span class="text-[11px] font-body-small text-text-muted leading-tight">Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 min-h-screen bg-background-canvas"><div class="flex flex-col w-full">
+<!-- Document Header Bar -->
+<div class="w-full bg-surface shadow-sm px-space-lg py-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<!-- Breadcrumb Navigation -->
+<nav class="flex items-center gap-1.5 text-text-muted font-body-small text-body-small">
+<a class="hover:text-on-surface transition-colors" href="#">Library</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-on-surface transition-colors" href="#">Agency Bookkeeping</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-medium">Publish &amp; Schema</span>
+</nav>
+<!-- Target URL & Status Tag -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-subtle text-text-muted font-code-data text-code-data text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-text-muted">link</span>
+<span class="text-on-surface font-medium">fernhillcfo.com/services/agency-bookkeeping</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-warning-soft text-warning font-label-medium text-label-medium text-[12px]">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+<span>Ready for deployment (with overrides)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-baseline gap-3">
+<h1 class="font-section-h2 text-section-h2 text-on-surface tracking-tight">Bookkeeping for Creative Agencies: What It Costs and What You Get</h1>
+<span class="font-code-data text-code-data text-[12px] text-text-muted">ID: ent_doc_0982f</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-subtle text-on-surface hover:bg-surface-container font-label-medium text-label-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Live Preview</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-hover font-label-medium text-label-medium transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>Deploy Payload</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-space-lg flex flex-col gap-space-lg max-w-[1720px] mx-auto w-full">
+<!-- Top Validation Gate Banner -->
+<div class="w-full bg-surface rounded-xl shadow-sm p-4 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-warning"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pl-2">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-warning-soft text-warning flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-medium text-label-medium font-semibold text-on-surface">Validation Gate: 2 blockers · 3 warnings</span>
+<span class="px-2 py-0.5 rounded-full bg-warning-soft text-warning font-code-data text-[11px] font-medium">Policy strict-v3</span>
+</div>
+<p class="font-body-small text-body-small text-text-muted">1 manual override applied. 1 active citation blocker requires manual clearance or deployment will be logged with non-compliance tags.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end lg:self-center shrink-0">
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-surface-container text-on-surface font-label-medium text-label-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] text-text-muted">tune</span>
+<span>Fix in Optimizer</span>
+</a>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning-soft hover:bg-warning/20 text-warning font-label-medium text-label-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">lock_open</span>
+<span>Publish anyway (audit logged)</span>
+</button>
+</div>
+</div>
+<!-- Checklist Items Grid -->
+<div class="mt-4 pt-3.5 pl-2 grid grid-cols-1 md:grid-cols-2 gap-3 bg-surface-subtle/50 rounded-lg p-3">
+<!-- Blockers Column -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-danger font-label-medium text-[11px] font-semibold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>Blockers (2)</span>
+</div>
+<div class="flex items-start justify-between gap-2 bg-surface p-2.5 rounded-lg shadow-sm">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-warning text-[16px] shrink-0 mt-0.5">published_with_changes</span>
+<span class="font-body-small text-body-small text-on-surface leading-tight">Price discrepancy in Sec 4 ($299 vs canonical $349)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-warning-soft text-warning font-code-data text-[10px] shrink-0 font-medium">Overridden · Audit #341</span>
+</div>
+<div class="flex items-start justify-between gap-2 bg-surface p-2.5 rounded-lg shadow-sm">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-danger text-[16px] shrink-0 mt-0.5">cancel</span>
+<span class="font-body-small text-body-small text-on-surface leading-tight">Missing citation anchor for Austin 2026 contractor compliance statistic</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-danger-soft text-danger font-code-data text-[10px] shrink-0 font-semibold">High Blocker</span>
+</div>
+</div>
+<!-- Warnings Column -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-warning font-label-medium text-[11px] font-semibold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Warnings (3)</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between gap-2 bg-surface px-2.5 py-1.5 rounded-lg shadow-sm">
+<span class="font-body-small text-body-small text-on-surface truncate">H2 #3 exceeds 320 words (reduced chance of clean passage extraction)</span>
+<span class="font-code-data text-[11px] text-text-muted shrink-0">342w</span>
+</div>
+<div class="flex items-center justify-between gap-2 bg-surface px-2.5 py-1.5 rounded-lg shadow-sm">
+<span class="font-body-small text-body-small text-on-surface truncate">Social card image missing WebP fallback</span>
+<span class="font-code-data text-[11px] text-text-muted shrink-0">PNG only</span>
+</div>
+<div class="flex items-center justify-between gap-2 bg-surface px-2.5 py-1.5 rounded-lg shadow-sm">
+<span class="font-body-small text-body-small text-on-surface truncate">Entity 'QuickBooks Online' mentioned once without canonical alias linkage</span>
+<span class="font-code-data text-[11px] text-text-muted shrink-0">1 instance</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Three-Column Architecture -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Previews & Extraction Engine (approx 340px -> xl:col-span-3) -->
+<section class="xl:col-span-3 flex flex-col gap-space-md">
+<div class="bg-surface rounded-xl shadow-sm p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="font-label-medium text-label-medium font-semibold text-on-surface uppercase tracking-wider text-[11px]">Surfacing Previews</h2>
+<span class="text-text-muted material-symbols-outlined text-[16px]">devices</span>
+</div>
+<!-- Tab Switcher -->
+<div class="flex items-center p-1 bg-surface-subtle rounded-lg text-body-small font-label-medium">
+<button class="flex-1 py-1 rounded bg-surface shadow-sm text-primary font-medium text-center text-xs transition-all" id="btnTabAi" onclick="switchPreview('ai')">AI Answer</button>
+<button class="flex-1 py-1 rounded text-text-muted hover:text-on-surface text-center text-xs transition-all" id="btnTabSerp" onclick="switchPreview('serp')">Search SERP</button>
+<button class="flex-1 py-1 rounded text-text-muted hover:text-on-surface text-center text-xs transition-all" id="btnTabSocial" onclick="switchPreview('social')">Social Card</button>
+</div>
+<!-- Preview Content: AI Answer Tab -->
+<div class="flex flex-col gap-3" id="previewAi">
+<div class="flex items-center justify-between">
+<span class="font-label-medium text-label-medium text-on-surface font-medium">Passage Likely to be Quoted</span>
+<span class="px-2 py-0.5 rounded-full bg-success-soft text-tertiary font-code-data text-[10px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> 88% confidence
+              </span>
+</div>
+<!-- Simulated Generative AI Box -->
+<div class="p-3.5 rounded-xl bg-info-soft/40 relative overflow-hidden flex flex-col gap-2.5">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+</div>
+<span class="font-label-medium text-[12px] font-semibold text-secondary">Generative Synthesis Result</span>
+</div>
+<blockquote class="font-editor-prose text-[14px] leading-relaxed text-on-surface bg-surface/80 p-2.5 rounded-lg shadow-sm">
+<mark class="bg-primary-soft text-primary-container px-1 py-0.5 rounded font-normal">“Fernhill Bookkeeping provides monthly bookkeeping and fractional CFO advisory tailored specifically for Austin creative agencies, with standardized tiers starting at $349/month.”</mark>
+</blockquote>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-surface shadow-sm text-[11px] font-code-data text-text-muted w-fit">
+<span class="material-symbols-outlined text-[13px] text-secondary">share</span>
+<span class="truncate max-w-[210px]">fernhillcfo.com/services/agency-bookkeeping</span>
+</div>
+</div>
+<!-- Extraction Factors Checklist -->
+<div class="flex flex-col gap-1.5 bg-surface-subtle p-3 rounded-lg">
+<span class="text-[11px] font-label-medium font-semibold text-text-muted uppercase tracking-wider">Passage Extraction Factors</span>
+<div class="flex items-center gap-2 text-body-small font-body-small text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Answer-first sentence pattern</span>
+</div>
+<div class="flex items-center gap-2 text-body-small font-body-small text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Explicit Named Entity linkage</span>
+</div>
+<div class="flex items-center gap-2 text-body-small font-body-small text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Unambiguous pricing parameter</span>
+</div>
+<div class="flex items-center gap-2 text-body-small font-body-small text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Verified Austin local schema anchor</span>
+</div>
+</div>
+<!-- Secondary Extraction: Assistant & Voice Audio -->
+<div class="p-3 bg-surface-subtle/50 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-muted">mic</span>
+<span class="font-label-medium text-[12px] font-semibold text-on-surface">Voice Definition Extractor</span>
+</div>
+<span class="font-code-data text-[10px] text-text-muted">TTS ready</span>
+</div>
+<p class="font-body-small text-body-small text-on-surface-variant italic leading-snug">
+                “Agency bookkeeping is a specialized accounting workflow tracking project-based labor costs, retainers, and WIP for creative studios.”
+              </p>
+</div>
+</div>
+<!-- Preview Content: SERP Snippet -->
+<div class="hidden flex-col gap-2.5" id="previewSerp">
+<span class="font-label-medium text-[12px] font-semibold text-on-surface">Google Search Desktop SERP</span>
+<div class="p-3 rounded-xl bg-surface-subtle flex flex-col gap-1">
+<span class="font-code-data text-[11px] text-text-muted">https://fernhillcfo.com › services › agency-bookkeeping</span>
+<a class="font-body-large text-[15px] font-semibold text-secondary hover:underline leading-snug" href="#">Bookkeeping for Creative Agencies: What It Costs and What You Get</a>
+<p class="font-body-small text-body-small text-text-muted leading-relaxed line-clamp-2">
+                Austin creative agency bookkeeping &amp; fractional CFO services from $349/month. Discover labor multiplier benchmarks, contractor compliance, and cash-flow systems.
+              </p>
+<div class="flex items-center gap-2 mt-1 text-[11px] font-code-data text-tertiary">
+<span>Rating: 5.0 ★★★★★ (24 reviews)</span>
+<span>·</span>
+<span>Price: From $349.00</span>
+</div>
+</div>
+</div>
+<!-- Preview Content: Social Card -->
+<div class="hidden flex-col gap-2.5" id="previewSocial">
+<span class="font-label-medium text-[12px] font-semibold text-on-surface">OpenGraph 1200×630 Card</span>
+<div class="rounded-xl overflow-hidden shadow-sm bg-surface">
+<div class="bg-cover bg-center w-full h-36 flex items-end p-2.5 bg-gradient-to-t from-dark-background/80 via-transparent to-transparent" data-alt="Modern minimal desk setup in Austin Texas with clean accounting spreadsheets on laptop and architectural blueprints with subtle warm lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkG3QHG_41ZxswsUNHoaXqOhkGcYOcFYzTIpZkJ7ayzSMVWIDIFDHrezv6U5_T6g_m53CxPGLvdpLkROteGbv0jHalDteJQbprzCu1OaobxmNRTlpOmepEUFqtyPODdNbdhLE7U1xOAaLsRboNhmWx4VNBgalO9SI3-_VaKh6zjk18lUOdQaRodqfNwIQViFUlEiDKq9DKUWyzYUS1Ds8Byy-JgeQrRJEeHpXGrZoyOLfiyCjmelCb')">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary text-[10px] font-code-data font-semibold">CFO INSIGHTS</span>
+</div>
+<div class="p-3 flex flex-col gap-1 bg-surface-subtle">
+<span class="font-code-data text-[10px] text-text-muted uppercase">fernhillcfo.com</span>
+<span class="font-label-medium text-body-small font-semibold text-on-surface leading-snug">Bookkeeping for Creative Agencies: Real Costs &amp; ROI</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CENTER COLUMN: Schema Graph & JSON-LD Viewer (approx 520px -> xl:col-span-5) -->
+<section class="xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface rounded-xl shadow-sm p-4 flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<h2 class="font-section-h2 text-[17px] text-on-surface font-semibold tracking-tight">Knowledge Graph Schema Generator</h2>
+</div>
+<p class="font-body-small text-body-small text-text-muted">Built directly from Entity Hub · Shared canonical @id across all site entities</p>
+</div>
+<a class="flex items-center gap-1 text-[12px] font-label-medium text-primary hover:underline shrink-0" href="https://search.google.com/test/rich-results" rel="noopener noreferrer" target="_blank">
+<span>Google Rich Test</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+<!-- Active Schema Types Toggles -->
+<div class="flex flex-wrap gap-1.5 p-2 bg-surface-subtle rounded-lg">
+<label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface shadow-sm text-[12px] font-label-medium cursor-pointer">
+<input checked="" class="rounded border-border-hairline text-primary focus:ring-0" type="checkbox"/>
+<span class="text-on-surface">Article</span>
+<span class="text-[10px] font-code-data text-text-muted">(CreativeWork)</span>
+</label>
+<label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface shadow-sm text-[12px] font-label-medium cursor-pointer">
+<input checked="" class="rounded border-border-hairline text-primary focus:ring-0" type="checkbox"/>
+<span class="text-on-surface">Service</span>
+<span class="text-[10px] font-code-data text-text-muted">(FinancialService)</span>
+</label>
+<label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface shadow-sm text-[12px] font-label-medium cursor-pointer">
+<input checked="" class="rounded border-border-hairline text-primary focus:ring-0" type="checkbox"/>
+<span class="text-on-surface">Organization</span>
+<span class="text-[10px] font-code-data text-text-muted">(Fernhill)</span>
+</label>
+<label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface shadow-sm text-[12px] font-label-medium cursor-pointer">
+<input checked="" class="rounded border-border-hairline text-primary focus:ring-0" type="checkbox"/>
+<span class="text-on-surface">FAQPage</span>
+<span class="text-[10px] font-code-data text-tertiary font-semibold">(3 QA pairs)</span>
+</label>
+<label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface shadow-sm text-[12px] font-label-medium cursor-pointer">
+<input checked="" class="rounded border-border-hairline text-primary focus:ring-0" type="checkbox"/>
+<span class="text-on-surface">BreadcrumbList</span>
+</label>
+</div>
+<!-- JSON-LD Code Box -->
+<div class="rounded-xl overflow-hidden bg-dark-background text-dark-text shadow-sm flex flex-col">
+<!-- Header bar -->
+<div class="px-3.5 py-2 bg-dark-surface flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-code-data text-[11px] text-tertiary-fixed font-medium">Valid JSON-LD (Schema.org v24.1)</span>
+</div>
+<button class="flex items-center gap-1 px-2 py-0.5 rounded bg-dark-background text-dark-text-muted hover:text-dark-text font-code-data text-[11px] transition-colors" onclick="navigator.clipboard.writeText(document.getElementById('jsonCodeBlock').innerText); this.innerHTML='&lt;span class=\'material-symbols-outlined text-[13px]\'&gt;check&lt;/span&gt; Copied!'">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+<span>Copy JSON-LD</span>
+</button>
+</div>
+<!-- Code Body -->
+<div class="p-3.5 overflow-x-auto max-h-[520px] font-code-data text-[12px] leading-relaxed select-all">
+<pre class="text-dark-text" id="jsonCodeBlock"><span class="text-dark-text-muted">{</span>
+  <span class="text-dark-primary">"@context"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"https://schema.org"</span><span class="text-dark-text-muted">,</span>
+  <span class="text-dark-primary">"@graph"</span><span class="text-dark-text-muted">: [</span>
+    <span class="text-dark-text-muted">{</span>
+      <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"FinancialService"</span><span class="text-dark-text-muted">,</span>
+      <span class="text-dark-primary">"@id"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"https://fernhillcfo.com/#agency-bookkeeping"</span><span class="text-dark-text-muted">,</span>
+      <span class="text-dark-primary">"name"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Creative Agency Bookkeeping"</span><span class="text-dark-text-muted">,</span>
+      <span class="text-dark-primary">"provider"</span><span class="text-dark-text-muted">: {</span> <span class="text-dark-primary">"@id"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"https://fernhillcfo.com/#organization"</span> <span class="text-dark-text-muted">},</span>
+      <span class="text-dark-primary">"areaServed"</span><span class="text-dark-text-muted">: {</span>
+        <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"City"</span><span class="text-dark-text-muted">,</span>
+        <span class="text-dark-primary">"name"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Austin, TX"</span>
+      <span class="text-dark-text-muted">},</span>
+      <span class="text-dark-primary">"offers"</span><span class="text-dark-text-muted">: {</span>
+        <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Offer"</span><span class="text-dark-text-muted">,</span>
+        <span class="text-dark-primary">"price"</span><span class="text-dark-text-muted">:</span> <span class="text-warning">"349.00"</span><span class="text-dark-text-muted">,</span>
+        <span class="text-dark-primary">"priceCurrency"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"USD"</span><span class="text-dark-text-muted">,</span>
+        <span class="text-dark-primary">"billingDuration"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"P1M"</span>
+      <span class="text-dark-text-muted">}</span>
+    <span class="text-dark-text-muted">},</span>
+    <span class="text-dark-text-muted">{</span>
+      <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"FAQPage"</span><span class="text-dark-text-muted">,</span>
+      <span class="text-dark-primary">"@id"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"https://fernhillcfo.com/services/agency-bookkeeping#faq"</span><span class="text-dark-text-muted">,</span>
+      <span class="text-dark-primary">"mainEntity"</span><span class="text-dark-text-muted">: [</span>
+        <span class="text-dark-text-muted">{</span>
+          <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Question"</span><span class="text-dark-text-muted">,</span>
+          <span class="text-dark-primary">"name"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"How much does bookkeeping cost for a 10-person creative studio?"</span><span class="text-dark-text-muted">,</span>
+          <span class="text-dark-primary">"acceptedAnswer"</span><span class="text-dark-text-muted">: {</span>
+            <span class="text-dark-primary">"@type"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Answer"</span><span class="text-dark-text-muted">,</span>
+            <span class="text-dark-primary">"text"</span><span class="text-dark-text-muted">:</span> <span class="text-tertiary-fixed">"Standard tiers begin at $349/month with custom reconciliation for project retainers."</span>
+          <span class="text-dark-text-muted">}</span>
+        <span class="text-dark-text-muted">}</span>
+      <span class="text-dark-text-muted">]</span>
+    <span class="text-dark-text-muted">}</span>
+  <span class="text-dark-text-muted">]</span>
+<span class="text-dark-text-muted">}</span></pre>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-small text-text-muted font-body-small pt-1">
+<span class="flex items-center gap-1.5 font-code-data text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check</span>
+              Entities verified against local Graph Database
+            </span>
+<button class="text-primary hover:text-primary-hover font-label-medium text-label-medium">Re-index Canonical Graph</button>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Publish Destinations & Telemetry (approx 340px -> xl:col-span-4) -->
+<section class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Destinations Panel -->
+<div class="bg-surface rounded-xl shadow-sm p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="font-label-medium text-label-medium font-semibold text-on-surface uppercase tracking-wider text-[11px]">Deployment Destinations</h2>
+<span class="px-2 py-0.5 rounded-full bg-info-soft text-secondary font-code-data text-[10px] font-semibold">6 Ready</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- WordPress Live Sync -->
+<div class="p-3 rounded-lg bg-surface-subtle hover:bg-surface-container transition-colors flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary text-on-primary flex items-center justify-center font-bold text-xs">W</div>
+<div class="flex flex-col">
+<span class="font-label-medium text-body-small font-semibold text-on-surface leading-tight">WordPress REST API</span>
+<span class="font-body-small text-[11px] text-text-muted">Target: fernhillcfo.com (Draft #884)</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-success-soft text-tertiary text-[10px] font-code-data font-medium">Connected</span>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-hover font-label-medium text-label-medium transition-colors shadow-sm flex items-center justify-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-[14px]">cloud_upload</span>
+<span>Publish to WordPress</span>
+</button>
+</div>
+<!-- Markdown / Frontmatter -->
+<div class="p-2.5 rounded-lg bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-text-muted text-[18px]">terminal</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-medium text-body-small font-semibold text-on-surface truncate">Markdown + YAML Frontmatter</span>
+<span class="font-body-small text-[11px] text-text-muted truncate">Astro / Next.js collections</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-xs transition-colors shrink-0 shadow-sm">Export .md</button>
+</div>
+<!-- Static HTML Bundle -->
+<div class="p-2.5 rounded-lg bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-text-muted text-[18px]">html</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-medium text-body-small font-semibold text-on-surface truncate">Static HTML + Inlined JSON-LD</span>
+<span class="font-body-small text-[11px] text-text-muted truncate">Clean standalone distribution</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-xs transition-colors shrink-0 shadow-sm">Export HTML</button>
+</div>
+<!-- Git Commit Push -->
+<div class="p-2.5 rounded-lg bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-text-muted text-[18px]">commit</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-medium text-body-small font-semibold text-on-surface truncate">Git Commit (`main`)</span>
+<span class="font-body-small text-[11px] text-text-muted truncate">repo: fernhill-web/services</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-xs transition-colors shrink-0 shadow-sm">Push Commit</button>
+</div>
+<!-- JSON-LD Direct Embed -->
+<div class="p-2.5 rounded-lg bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-text-muted text-[18px]">code_blocks</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-medium text-body-small font-semibold text-on-surface truncate">Script Tag Snippet</span>
+<span class="font-body-small text-[11px] text-text-muted truncate">&lt;script type="application/ld+json"&gt;</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-xs transition-colors shrink-0 shadow-sm">Copy Tag</button>
+</div>
+<!-- CSV Claims Ledger -->
+<div class="p-2.5 rounded-lg bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-text-muted text-[18px]">table_chart</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-medium text-body-small font-semibold text-on-surface truncate">CSV Entity Claim Ledger</span>
+<span class="font-body-small text-[11px] text-text-muted truncate">14 audit-verified facts</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface hover:bg-surface-subtle text-on-surface font-label-medium text-xs transition-colors shrink-0 shadow-sm">Download</button>
+</div>
+</div>
+</div>
+<!-- Telemetry Card (Self-Hosted Node Status) -->
+<div class="bg-surface rounded-xl shadow-sm p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<h2 class="font-label-medium text-label-medium font-semibold text-on-surface uppercase tracking-wider text-[11px]">Self-Hosted Node Telemetry</h2>
+</div>
+<span class="font-code-data text-[10px] text-tertiary bg-success-soft px-1.5 py-0.5 rounded">Local Air-Gapped</span>
+</div>
+<div class="grid grid-cols-1 gap-2 font-code-data text-[11px]">
+<div class="flex items-center justify-between p-2 rounded bg-surface-subtle">
+<span class="text-text-muted">Inference Model</span>
+<span class="text-on-surface font-medium">Ollama · qwen2.5:14b</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-subtle">
+<span class="text-text-muted">Storage Path</span>
+<span class="text-on-surface font-medium truncate max-w-[170px]" title="/var/data/aentio/workspaces/fernhill/">/var/data/aentio/...</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-subtle">
+<span class="text-text-muted">Session Tokens</span>
+<span class="text-tertiary font-medium">18.2k (0B egress)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-subtle">
+<span class="text-text-muted">Embedded Database</span>
+<span class="text-on-surface font-medium">SQLite (schema v2.4.1)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-subtle">
+<span class="text-text-muted">Last Local Backup</span>
+<span class="text-text-muted">24m ago (snapshot #108)</span>
+</div>
+</div>
+<!-- Micro chart: Token Processing Distribution -->
+<div class="pt-2 flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-[10px] font-code-data text-text-muted">
+<span>Token Allocation: Graph (65%) · Entity (25%) · Audit (10%)</span>
+<span class="text-tertiary font-semibold">100% On-Device</span>
+</div>
+<div class="w-full h-1.5 bg-surface-subtle rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 65%;"></div>
+<div class="bg-secondary h-full" style="width: 25%;"></div>
+<div class="bg-tertiary-fixed-dim h-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  function switchPreview(tab) {
+    const ai = document.getElementById('previewAi');
+    const serp = document.getElementById('previewSerp');
+    const social = document.getElementById('previewSocial');
+    const btnAi = document.getElementById('btnTabAi');
+    const btnSerp = document.getElementById('btnTabSerp');
+    const btnSocial = document.getElementById('btnTabSocial');
+
+    // Hide all
+    ai.classList.add('hidden');
+    serp.classList.add('hidden');
+    social.classList.add('hidden');
+
+    // Reset styles
+    [btnAi, btnSerp, btnSocial].forEach(btn => {
+      btn.classList.remove('bg-surface', 'shadow-sm', 'text-primary', 'font-medium');
+      btn.classList.add('text-text-muted');
+    });
+
+    if (tab === 'ai') {
+      ai.classList.remove('hidden');
+      btnAi.classList.add('bg-surface', 'shadow-sm', 'text-primary', 'font-medium');
+      btnAi.classList.remove('text-text-muted');
+    } else if (tab === 'serp') {
+      serp.classList.remove('hidden');
+      btnSerp.classList.add('bg-surface', 'shadow-sm', 'text-primary', 'font-medium');
+      btnSerp.classList.remove('text-text-muted');
+    } else if (tab === 'social') {
+      social.classList.remove('hidden');
+      btnSocial.classList.add('bg-surface', 'shadow-sm', 'text-primary', 'font-medium');
+      btnSocial.classList.remove('text-text-muted');
+    }
+  }
+</script></main></div></body></html>

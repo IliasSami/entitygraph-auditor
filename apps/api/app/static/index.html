@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EntityGraph Auditor — Entity & AI Retrieval Auditor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full flex flex-col font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Top Navigation -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center font-bold text-slate-950 text-lg shadow-lg shadow-emerald-500/20">
+          EG
+        </div>
+        <div>
+          <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">EntityGraph Auditor</span>
+          <span class="text-xs text-slate-400 ml-2 px-2 py-0.5 rounded-full border border-slate-700 bg-slate-800">v0.1.0 (local-first)</span>
+        </div>
+      </div>
+      <nav class="flex items-center gap-4 text-sm font-medium">
+        <button id="nav-new-audit" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow transition">New Audit</button>
+        <button id="nav-history" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition">History</button>
+        <a href="/docs" target="_blank" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition">API Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
+
+    <!-- View: New Audit Input Form -->
+    <section id="view-input" class="space-y-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-6">
+        <div>
+          <h2 class="text-xl font-bold text-white tracking-tight">Run Content & Entity Audit</h2>
+          <p class="text-sm text-slate-400">Audit content for central entities, EAV coverage, explicit relationships, query fan-out, and passage-level AI extractability.</p>
+        </div>
+
+        <!-- Mode Toggle: Paste Text vs URL -->
+        <div class="flex gap-4 border-b border-slate-800 pb-4">
+          <button id="mode-text-btn" class="px-4 py-2 text-sm font-medium rounded-lg bg-slate-800 text-emerald-400 border border-emerald-500/30">Paste Content</button>
+          <button id="mode-url-btn" class="px-4 py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-white">Fetch Live URL</button>
+        </div>
+
+        <!-- URL Input (hidden by default) -->
+        <div id="url-input-block" class="hidden space-y-2">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Target URL</label>
+          <div class="flex gap-2">
+            <input id="input-url" type="url" placeholder="https://example.com/blog/my-guide" class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+            <button id="btn-fetch-url" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg border border-slate-700">Fetch & Parse</button>
+          </div>
+        </div>
+
+        <!-- Text Input -->
+        <div id="text-input-block" class="space-y-2">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Content (Markdown, HTML, or Plain Text)</label>
+          <textarea id="input-content" rows="10" placeholder="Paste your draft copy, service landing page, or technical article here..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-4 text-sm font-mono text-slate-200 focus:outline-none focus:border-emerald-500 leading-relaxed"></textarea>
+        </div>
+
+        <!-- Parameters Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Page Type</label>
+            <select id="input-page-type" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+              <option value="general">Auto-Detect</option>
+              <option value="service">Service Page</option>
+              <option value="article">Article / Guide</option>
+              <option value="comparison">Comparison / Listicle</option>
+              <option value="local_service">Local Service</option>
+              <option value="case_study">Case Study</option>
+              <option value="saas_b2b">SaaS / B2B</option>
+              <option value="glossary">Glossary</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Central Entity Override</label>
+            <input id="input-central-entity" type="text" placeholder="(Optional auto-detect)" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Model Provider</label>
+            <select id="input-provider" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+              <option value="dummy">Deterministic Baseline (Offline)</option>
+              <option value="ollama">Ollama (Local LLM)</option>
+              <option value="openai">OpenAI / Compatible (BYOK)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Audit Depth</label>
+            <select id="input-depth" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+              <option value="standard">Standard Audit</option>
+              <option value="deep">Deep Retrieval Audit</option>
+              <option value="quick">Quick Check</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+          <button id="btn-load-sample" class="text-xs text-emerald-400 hover:text-emerald-300 font-medium">Load Sample B2B Content</button>
+          <button id="btn-run-audit" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg shadow-lg shadow-emerald-600/30 flex items-center gap-2 transition">
+            <span id="btn-spinner" class="hidden animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+            <span id="btn-text">Execute Multi-Agent Audit</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- View: Audit Results Workspace (hidden initially) -->
+    <section id="view-results" class="hidden space-y-6">
+      
+      <!-- Top Scorecard Bar -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl flex flex-wrap items-center justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-3">
+            <h2 id="res-title" class="text-2xl font-bold text-white tracking-tight">Acme Cloud Sentinel</h2>
+            <span id="res-gate" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>
+          </div>
+          <p id="res-meta" class="text-xs text-slate-400 mt-1">Central Entity: <strong class="text-slate-200" id="res-central">Acme</strong> • Page Type: <span id="res-pagetype">service</span> • Run ID: <code class="text-slate-300" id="res-runid">run_123</code></p>
+        </div>
+
+        <!-- Composite AVR -->
+        <div class="flex items-center gap-4 bg-slate-950/60 border border-slate-800/80 rounded-xl px-5 py-3">
+          <div class="text-right">
+            <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">AI Visibility Readiness (AVR)</div>
+            <div class="text-xs text-slate-500">Editorial Heuristic</div>
+          </div>
+          <div id="res-avr" class="text-4xl font-extrabold text-emerald-400">8.4</div>
+          <div class="text-xs text-slate-500">/ 10</div>
+        </div>
+
+        <div class="flex gap-2">
+          <button id="btn-export-md" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">Export Markdown</button>
+          <button id="btn-export-json" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">Export JSON</button>
+        </div>
+      </div>
+
+      <!-- Rubric Component Scores Grid -->
+      <div id="res-scores-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="border-b border-slate-800 flex gap-6 text-sm font-medium">
+        <button class="tab-btn pb-3 text-emerald-400 border-b-2 border-emerald-400" data-tab="tab-recommendations">Recommendations (<span id="count-recs">0</span>)</button>
+        <button class="tab-btn pb-3 text-slate-400 hover:text-slate-200" data-tab="tab-swot">SWOT & Analysis</button>
+        <button class="tab-btn pb-3 text-slate-400 hover:text-slate-200" data-tab="tab-entities">Entities & EAV (<span id="count-entities">0</span>)</button>
+        <button class="tab-btn pb-3 text-slate-400 hover:text-slate-200" data-tab="tab-triples">Knowledge Triples (<span id="count-triples">0</span>)</button>
+        <button class="tab-btn pb-3 text-slate-400 hover:text-slate-200" data-tab="tab-fanout">Query Fan-Out (<span id="count-fanout">0</span>)</button>
+      </div>
+
+      <!-- Tab Content: Recommendations -->
+      <div id="tab-recommendations" class="tab-panel space-y-4">
+        <div id="recommendations-container" class="space-y-3">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Tab Content: SWOT -->
+      <div id="tab-swot" class="tab-panel hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+            <span>✓</span> Content Strengths
+          </h3>
+          <ul id="swot-strengths" class="text-sm text-slate-300 space-y-2 list-disc list-inside"></ul>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+            <span>!</span> Structural Weaknesses
+          </h3>
+          <ul id="swot-weaknesses" class="text-sm text-slate-300 space-y-2 list-disc list-inside"></ul>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
+            <span>↑</span> Opportunities & Expansion
+          </h3>
+          <ul id="swot-opportunities" class="text-sm text-slate-300 space-y-2 list-disc list-inside"></ul>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-rose-400 flex items-center gap-2">
+            <span>✕</span> Compliance & Gate Threats
+          </h3>
+          <ul id="swot-threats" class="text-sm text-slate-300 space-y-2 list-disc list-inside"></ul>
+        </div>
+      </div>
+
+      <!-- Tab Content: Entities & EAV -->
+      <div id="tab-entities" class="tab-panel hidden space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300">Extracted Entities</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="pb-2">Canonical Name</th>
+                  <th class="pb-2">Kind</th>
+                  <th class="pb-2">Salience</th>
+                  <th class="pb-2">Central</th>
+                  <th class="pb-2">Confidence</th>
+                </tr>
+              </thead>
+              <tbody id="entities-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300">Entity Attribute-Value (EAV) Ledger</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="pb-2">Entity</th>
+                  <th class="pb-2">Attribute</th>
+                  <th class="pb-2">Value</th>
+                  <th class="pb-2">Status</th>
+                  <th class="pb-2">Evidence Excerpt</th>
+                </tr>
+              </thead>
+              <tbody id="eav-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Triples -->
+      <div id="tab-triples" class="tab-panel hidden space-y-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300">Semantic Relationship Triples</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="pb-2">Subject</th>
+                  <th class="pb-2">Predicate</th>
+                  <th class="pb-2">Object</th>
+                  <th class="pb-2">Relationship Type</th>
+                  <th class="pb-2">Status</th>
+                </tr>
+              </thead>
+              <tbody id="triples-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Fanout -->
+      <div id="tab-fanout" class="tab-panel hidden space-y-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300">Topical Query Fan-Out & Coverage Matrix</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="pb-2">Query</th>
+                  <th class="pb-2">Importance</th>
+                  <th class="pb-2">Coverage Status</th>
+                  <th class="pb-2">Gap Reason / Destination</th>
+                </tr>
+              </thead>
+              <tbody id="fanout-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- View: History List -->
+    <section id="view-history" class="hidden space-y-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-4 shadow-xl">
+        <h2 class="text-xl font-bold text-white tracking-tight">Audit History</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="text-slate-400 border-b border-slate-800 text-xs uppercase tracking-wider">
+              <tr>
+                <th class="pb-3">Title / Subject</th>
+                <th class="pb-3">Page Type</th>
+                <th class="pb-3">Gate</th>
+                <th class="pb-3">AVR Score</th>
+                <th class="pb-3">Date</th>
+                <th class="pb-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body" class="divide-y divide-slate-800 text-slate-300"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Client JavaScript -->
+  <script type="module">
+    let currentAuditReport = null;
+
+    // Navigation toggles
+    const viewInput = document.getElementById('view-input');
+    const viewResults = document.getElementById('view-results');
+    const viewHistory = document.getElementById('view-history');
+
+    function showView(view) {
+      viewInput.classList.add('hidden');
+      viewResults.classList.add('hidden');
+      viewHistory.classList.add('hidden');
+      view.classList.remove('hidden');
+    }
+
+    document.getElementById('nav-new-audit').addEventListener('click', () => showView(viewInput));
+    document.getElementById('nav-history').addEventListener('click', () => {
+      loadHistory();
+      showView(viewHistory);
+    });
+
+    // Sample Content
+    document.getElementById('btn-load-sample').addEventListener('click', () => {
+      document.getElementById('input-content').value = `# Acme Cloud Sentinel
+Acme Cloud Sentinel delivers real-time container vulnerability scanning and eBPF runtime security for Kubernetes clusters.
+
+## Core Capabilities
+- Sub-second container image vulnerability analysis with automated CVE correlation
+- Kernel-level eBPF monitoring with zero agent overhead
+- Instant alerting via Slack, PagerDuty, and SIEM webhooks
+
+## Pricing & Deployment
+Pricing starts at $49 per node per month with transparent tiered billing.
+Available as a self-hosted Docker Compose deployment or managed cloud service.
+
+[Official Security Documentation](https://example.com/docs)`;
+      document.getElementById('input-page-type').value = 'saas_b2b';
+      document.getElementById('input-central-entity').value = 'Acme Cloud Sentinel';
+    });
+
+    // Mode Toggle (Paste vs URL)
+    const modeTextBtn = document.getElementById('mode-text-btn');
+    const modeUrlBtn = document.getElementById('mode-url-btn');
+    const textInputBlock = document.getElementById('text-input-block');
+    const urlInputBlock = document.getElementById('url-input-block');
+
+    modeTextBtn.addEventListener('click', () => {
+      modeTextBtn.classList.add('bg-slate-800', 'text-emerald-400', 'border', 'border-emerald-500/30');
+      modeTextBtn.classList.remove('text-slate-400');
+      modeUrlBtn.classList.remove('bg-slate-800', 'text-emerald-400', 'border', 'border-emerald-500/30');
+      modeUrlBtn.classList.add('text-slate-400');
+      textInputBlock.classList.remove('hidden');
+      urlInputBlock.classList.add('hidden');
+    });
+
+    modeUrlBtn.addEventListener('click', () => {
+      modeUrlBtn.classList.add('bg-slate-800', 'text-emerald-400', 'border', 'border-emerald-500/30');
+      modeUrlBtn.classList.remove('text-slate-400');
+      modeTextBtn.classList.remove('bg-slate-800', 'text-emerald-400', 'border', 'border-emerald-500/30');
+      modeTextBtn.classList.add('text-slate-400');
+      urlInputBlock.classList.remove('hidden');
+      textInputBlock.classList.add('hidden');
+    });
+
+    // Fetch URL
+    document.getElementById('btn-fetch-url').addEventListener('click', async () => {
+      const url = document.getElementById('input-url').value.trim();
+      if (!url) return alert('Please enter a valid URL.');
+      try {
+        const res = await fetch('/api/v1/content/fetch-url', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({url})
+        });
+        if (!res.ok) {
+          const err = await res.json();
+          return alert('Error fetching URL: ' + (err.detail || res.statusText));
+        }
+        const data = await res.json();
+        document.getElementById('input-content').value = data.parsed_document.normalized_text;
+        modeTextBtn.click();
+      } catch (e) {
+        alert('Network error fetching URL: ' + e.message);
+      }
+    });
+
+    // Run Audit
+    const btnRunAudit = document.getElementById('btn-run-audit');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const btnText = document.getElementById('btn-text');
+
+    btnRunAudit.addEventListener('click', async () => {
+      const content = document.getElementById('input-content').value.trim();
+      if (!content) return alert('Please paste content or fetch a URL first.');
+
+      const pageType = document.getElementById('input-page-type').value;
+      const centralEntity = document.getElementById('input-central-entity').value.trim();
+      const modelProvider = document.getElementById('input-provider').value;
+      const depth = document.getElementById('input-depth').value;
+
+      btnSpinner.classList.remove('hidden');
+      btnText.textContent = 'Auditing...';
+      btnRunAudit.disabled = true;
+
+      try {
+        const res = await fetch('/api/v1/audits', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            content,
+            page_type: pageType === 'general' ? null : pageType,
+            central_entity: centralEntity || null,
+            model_provider: modelProvider,
+            depth: depth
+          })
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          alert('Audit failed: ' + (err.detail || res.statusText));
+          return;
+        }
+
+        const report = await res.json();
+        renderAuditReport(report);
+        showView(viewResults);
+      } catch (e) {
+        alert('Audit execution error: ' + e.message);
+      } finally {
+        btnSpinner.classList.add('hidden');
+        btnText.textContent = 'Execute Multi-Agent Audit';
+        btnRunAudit.disabled = false;
+      }
+    });
+
+    // Render Report
+    function renderAuditReport(report) {
+      currentAuditReport = report;
+      const meta = report.audit_metadata || {};
+      document.getElementById('res-title').textContent = meta.central_entity || 'Audit Overview';
+      document.getElementById('res-central').textContent = meta.central_entity || 'N/A';
+      document.getElementById('res-pagetype').textContent = meta.page_type || 'general';
+      document.getElementById('res-runid').textContent = meta.run_id || '';
+      document.getElementById('res-avr').textContent = report.composite_avr !== null ? report.composite_avr : 'N/A';
+
+      // Gate badge
+      const gateBadge = document.getElementById('res-gate');
+      const gateStatus = (report.gate && report.gate.status) || 'pass';
+      gateBadge.textContent = gateStatus.replace('_', ' ');
+      if (gateStatus === 'pass') {
+        gateBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+      } else if (gateStatus === 'pass_with_fixes') {
+        gateBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30';
+      } else {
+        gateBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-400 border border-rose-500/30';
+      }
+
+      // Scores grid
+      const grid = document.getElementById('res-scores-grid');
+      grid.innerHTML = '';
+      const scores = report.scores || {};
+      for (const [key, cs] of Object.entries(scores)) {
+        const div = document.createElement('div');
+        div.className = 'bg-slate-900 border border-slate-800 rounded-lg p-3 text-center space-y-1 shadow';
+        div.innerHTML = `
+          <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">${key}</div>
+          <div class="text-xl font-extrabold ${cs.value >= 7.5 ? 'text-emerald-400' : cs.value >= 5.0 ? 'text-amber-400' : 'text-rose-400'}">${cs.value}</div>
+          <div class="text-[10px] text-slate-500 truncate" title="${cs.rationale}">${cs.rationale || ''}</div>
+        `;
+        grid.appendChild(div);
+      }
+
+      // Tab Counts
+      const recs = report.recommendations || [];
+      document.getElementById('count-recs').textContent = recs.length;
+      document.getElementById('count-entities').textContent = (report.entities || []).length;
+      document.getElementById('count-triples').textContent = (report.triples || []).length;
+      document.getElementById('count-fanout').textContent = (report.fanout || []).length;
+
+      // Recommendations tab
+      const recContainer = document.getElementById('recommendations-container');
+      recContainer.innerHTML = '';
+      if (recs.length === 0) {
+        recContainer.innerHTML = '<div class="text-sm text-slate-400 p-4 text-center">No outstanding recommendations. Content is well-optimized.</div>';
+      } else {
+        recs.forEach(r => {
+          const card = document.createElement('div');
+          const isCritical = r.severity === 'critical';
+          const isHigh = r.severity === 'high';
+          card.className = `bg-slate-900 border ${isCritical ? 'border-rose-500/40 bg-rose-950/10' : isHigh ? 'border-amber-500/30' : 'border-slate-800'} rounded-xl p-5 space-y-3`;
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${isCritical ? 'bg-rose-500/20 text-rose-400' : isHigh ? 'bg-amber-500/20 text-amber-400' : 'bg-slate-800 text-slate-300'}">${r.severity}</span>
+                  <span class="text-xs text-slate-500 font-mono">${r.finding_id}</span>
+                </div>
+                <h4 class="text-base font-bold text-white mt-1">${r.title}</h4>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-slate-400">Priority</span>
+                <div class="text-lg font-black text-emerald-400">${r.priority_score}</div>
+              </div>
+            </div>
+            <p class="text-sm text-slate-300">${r.what}</p>
+            ${r.how && r.how.suggested_rewrite ? `
+              <div class="bg-slate-950 border border-slate-800/80 rounded-lg p-3 text-xs space-y-1">
+                <div class="text-slate-400 font-semibold uppercase text-[10px] tracking-wider">Suggested Rewrite:</div>
+                <div class="font-mono text-emerald-300">${r.how.suggested_rewrite}</div>
+                ${r.how.verification_condition ? `<div class="text-slate-400 mt-1">Verification: ${r.how.verification_condition}</div>` : ''}
+              </div>
+            ` : ''}
+          `;
+          recContainer.appendChild(card);
+        });
+      }
+
+      // SWOT
+      const swot = report.swot || {};
+      renderList('swot-strengths', swot.strengths);
+      renderList('swot-weaknesses', swot.weaknesses);
+      renderList('swot-opportunities', swot.opportunities);
+      renderList('swot-threats', swot.threats);
+
+      // Entities & EAV
+      const entTbody = document.getElementById('entities-table-body');
+      entTbody.innerHTML = '';
+      (report.entities || []).forEach(e => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-2 font-medium text-white">${e.canonical_name}</td>
+          <td class="py-2 text-slate-400">${e.kind}</td>
+          <td class="py-2 text-slate-400">${e.salience}</td>
+          <td class="py-2">${e.is_central ? '<span class="text-emerald-400 font-bold">Yes</span>' : '<span class="text-slate-500">No</span>'}</td>
+          <td class="py-2 text-slate-400">${e.confidence}</td>
+        `;
+        entTbody.appendChild(tr);
+      });
+
+      const eavTbody = document.getElementById('eav-table-body');
+      eavTbody.innerHTML = '';
+      (report.eav_rows || []).forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-2 font-medium text-white">${r.entity_name}</td>
+          <td class="py-2 text-emerald-400">${r.attribute}</td>
+          <td class="py-2 font-mono text-slate-300">${r.value || '<span class="text-slate-500 italic">None</span>'}</td>
+          <td class="py-2"><span class="px-2 py-0.5 rounded text-[10px] font-semibold ${r.status === 'explicit' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'}">${r.status}</span></td>
+          <td class="py-2 text-slate-400 truncate max-w-xs">${r.evidence_excerpt || ''}</td>
+        `;
+        eavTbody.appendChild(tr);
+      });
+
+      // Triples
+      const triTbody = document.getElementById('triples-table-body');
+      triTbody.innerHTML = '';
+      (report.triples || []).forEach(t => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-2 font-medium text-white">${t.subject}</td>
+          <td class="py-2 text-emerald-400 italic">${t.predicate}</td>
+          <td class="py-2 font-medium text-cyan-300">${t.object_}</td>
+          <td class="py-2 text-slate-400">${t.triple_type}</td>
+          <td class="py-2 text-slate-400">${t.status}</td>
+        `;
+        triTbody.appendChild(tr);
+      });
+
+      // Fanout
+      const foTbody = document.getElementById('fanout-table-body');
+      foTbody.innerHTML = '';
+      const covMap = {};
+      (report.coverage_rows || []).forEach(cr => { covMap[cr.query_id] = cr; });
+      (report.fanout || []).forEach(q => {
+        const cov = covMap[q.query_id] || {};
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-2 font-medium text-white">${q.query_text}</td>
+          <td class="py-2 text-slate-400">Level ${q.importance}</td>
+          <td class="py-2"><span class="px-2 py-0.5 rounded text-[10px] font-semibold ${cov.status === 'covered' ? 'bg-emerald-500/20 text-emerald-400' : cov.status === 'partial' ? 'bg-amber-500/20 text-amber-400' : 'bg-rose-500/20 text-rose-400'}">${cov.status || 'missing'}</span></td>
+          <td class="py-2 text-slate-400">${cov.gap_reason || cov.destination_page || ''}</td>
+        `;
+        foTbody.appendChild(tr);
+      });
+    }
+
+    function renderList(elementId, items) {
+      const el = document.getElementById(elementId);
+      el.innerHTML = '';
+      (items || []).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        el.appendChild(li);
+      });
+    }
+
+    // Tabs Switcher
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-emerald-400', 'border-b-2', 'border-emerald-400');
+          b.classList.add('text-slate-400');
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+
+        btn.classList.add('text-emerald-400', 'border-b-2', 'border-emerald-400');
+        btn.classList.remove('text-slate-400');
+        document.getElementById(btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+
+    // History Loader
+    async function loadHistory() {
+      const tbody = document.getElementById('history-table-body');
+      tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-slate-500">Loading history...</td></tr>';
+      try {
+        const res = await fetch('/api/v1/audits');
+        const runs = await res.json();
+        tbody.innerHTML = '';
+        if (runs.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-slate-500">No audits executed yet.</td></tr>';
+          return;
+        }
+        runs.forEach(r => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-800/50 transition cursor-pointer';
+          tr.innerHTML = `
+            <td class="py-3 font-semibold text-white">${r.title || r.central_entity}</td>
+            <td class="py-3 text-slate-400">${r.page_type}</td>
+            <td class="py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${r.gate_status === 'pass' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}">${r.gate_status}</span></td>
+            <td class="py-3 font-bold text-emerald-400">${r.composite_avr || 'N/A'}</td>
+            <td class="py-3 text-xs text-slate-400">${new Date(r.created_at).toLocaleDateString()}</td>
+            <td class="py-3 text-right">
+              <button class="btn-view-run text-xs text-emerald-400 hover:text-emerald-300 font-semibold" data-id="${r.run_id}">View Report →</button>
+            </td>
+          `;
+          tr.querySelector('.btn-view-run').addEventListener('click', async () => {
+            const auditRes = await fetch(`/api/v1/audits/${r.run_id}`);
+            const report = await auditRes.json();
+            renderAuditReport(report);
+            showView(viewResults);
+          });
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-rose-400">Error loading history: ${e.message}</td></tr>`;
+      }
+    }
+
+    // Export Buttons
+    document.getElementById('btn-export-md').addEventListener('click', () => {
+      if (!currentAuditReport) return;
+      window.location.href = `/api/v1/audits/${currentAuditReport.audit_metadata.run_id}/export?format=markdown`;
+    });
+    document.getElementById('btn-export-json').addEventListener('click', () => {
+      if (!currentAuditReport) return;
+      window.location.href = `/api/v1/audits/${currentAuditReport.audit_metadata.run_id}/export?format=json`;
+    });
+  </script>
+</body>
+</html>

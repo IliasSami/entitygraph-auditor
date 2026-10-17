@@ -1,0 +1,39 @@
+{
+  "pack_id": "pack-acme-001",
+  "name": "Acme Analytics Engine brand pack",
+  "version": "1.0.0",
+  "brand_rules": [
+    {
+      "rule_id": "voice_01",
+      "statement": "Use plain, specific language and avoid hype adjectives.",
+      "severity": "medium"
+    }
+  ],
+  "banned_terms": [
+    {
+      "term": "rockstar",
+      "reason": "off-brand talent language",
+      "severity": "high"
+    },
+    {
+      "term": "guaranteed #1",
+      "reason": "unverifiable ranking claim",
+      "severity": "critical"
+    }
+  ],
+  "canonical_facts": [
+    {
+      "fact_id": "cf-availability",
+      "entity": "Acme Analytics Engine",
+      "attribute": "availability",
+      "canonical_value": "99.99%"
+    }
+  ],
+  "internal_links": [
+    {
+      "anchor_phrase": "streaming data guide",
+      "target_url": "/guides/streaming-data",
+      "entity": "streaming data"
+    }
+  ]
+}
