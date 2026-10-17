@@ -1,6 +1,7 @@
 """EntityGraph Auditor MCP package."""
 
-from ega_mcp.server import create_mcp_server
+from typing import Any
+
 from ega_mcp.tools import (
     TOOL_SPECS,
     tool_analyze_entities,
@@ -17,3 +18,12 @@ __all__ = [
     "tool_get_audit_report",
     "tool_run_content_audit",
 ]
+
+
+def __getattr__(name: str) -> Any:
+    if name == "create_mcp_server":
+        from ega_mcp.server import create_mcp_server
+
+        return create_mcp_server
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
